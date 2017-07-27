@@ -19,6 +19,15 @@ namespace AddressSplitForExcel
     public partial class AddressSplit : Form
     {
         private DataTable exceldt = null;
+        private List<AreaInfo> ProvinceList = new List<AreaInfo>();
+        private List<AreaInfo> CityList = new List<AreaInfo>();
+        private List<AreaInfo> RegionList = new List<AreaInfo>();
+
+        List<string> nxshort = new List<string>() { "宁夏", "宁夏回族" };
+        List<string> nmshort = new List<string>() { "内蒙", "内蒙古" };
+        List<string> xjshort = new List<string>() { "新疆", "新疆维吾尔族" };
+        List<string> gxshort = new List<string>() { "广西", "广西壮族" };
+        List<string> xzshort = new List<string>() { "西藏" };
         public AddressSplit()
         {
             InitializeComponent();
@@ -116,6 +125,7 @@ namespace AddressSplitForExcel
             string rsname = _namespace + ".json1.json";
 
             Stream stream = _assembly.GetManifestResourceStream(rsname);
+            List<RegionInfo> list = new List<RegionInfo>();
 
             using (StreamReader sr = new StreamReader(stream))
             {
@@ -125,9 +135,45 @@ namespace AddressSplitForExcel
                 
                 JsonSerializer serializer = new JsonSerializer();
 
-                List<RegionInfo> list = JsonConvert.DeserializeObject<List<RegionInfo>>(json);
+               list = JsonConvert.DeserializeObject<List<RegionInfo>>(json);
             }
 
+            foreach(var p in list)
+            {
+                //listbox.Items.Add(p.region);
+
+                AreaInfo prov = new AreaInfo();
+                prov.Code = p.code;
+                prov.ParentCode = "0";                
+                if (p.region.EndsWith("自治区")) //自治区
+                {
+                    prov.AreaLastName = "自治区";
+                    prov.AreaFirstName = p.region.Substring(0, p.region.Length - 3);
+                    if (prov.AreaFirstName.StartsWith("广西"))
+                        prov.AreaShortName = gxshort;
+                    else if (prov.AreaFirstName.StartsWith("新疆"))
+                        prov.AreaShortName = xjshort;
+                    else if (prov.AreaFirstName.StartsWith("宁夏"))
+                        prov.AreaShortName = nxshort;
+                    else if (prov.AreaFirstName.StartsWith("内蒙"))
+                        prov.AreaShortName = nmshort;
+                    else if (prov.AreaFirstName.StartsWith("西藏"))
+                        prov.AreaShortName = xzshort;
+                    else
+                        prov.AreaShortName = null;
+                }
+                else //省 市
+                {
+                    prov.AreaFirstName = p.region.Substring(0, p.region.Length - 1);
+                    prov.AreaLastName = p.region.Substring(p.region.Length - 1, 1);
+                    prov.AreaShortName = null;
+                }
+
+                ProvinceList.Add(prov);
+
+                listbox.Items.Add(prov.AreaFirstName);
+                listbox.Items.Add(prov.AreaLastName);
+            }
 
 
            // sr.Close();

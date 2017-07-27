@@ -95,6 +95,7 @@
     <Compile Include="AddressSplit.Designer.cs">
       <DependentUpon>AddressSplit.cs</DependentUpon>
     </Compile>
+    <Compile Include="AreaInfo.cs" />
     <Compile Include="ExcelHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
