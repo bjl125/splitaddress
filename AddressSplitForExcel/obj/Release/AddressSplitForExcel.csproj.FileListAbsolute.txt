@@ -1,0 +1,17 @@
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\bin\Release\AddressSplitForExcel.exe.config
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\bin\Release\AddressSplitForExcel.exe
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\bin\Release\AddressSplitForExcel.pdb
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\bin\Release\ICSharpCode.SharpZipLib.dll
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\bin\Release\Newtonsoft.Json.dll
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\bin\Release\NPOI.dll
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\bin\Release\NPOI.OOXML.dll
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\bin\Release\NPOI.OpenXml4Net.dll
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\bin\Release\NPOI.OpenXmlFormats.dll
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\bin\Release\Newtonsoft.Json.xml
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\bin\Release\NPOI.xml
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\obj\Release\AddressSplitForExcel.AddressSplit.resources
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\obj\Release\AddressSplitForExcel.Properties.Resources.resources
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\obj\Release\AddressSplitForExcel.csproj.GenerateResource.Cache
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\obj\Release\AddressSplitForExcel.exe
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\obj\Release\AddressSplitForExcel.pdb
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\obj\Release\AddressSplitForExcel.csprojResolveAssemblyReference.cache
