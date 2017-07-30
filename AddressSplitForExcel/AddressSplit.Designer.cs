@@ -33,11 +33,9 @@
             this.txtFilepath = new System.Windows.Forms.TextBox();
             this.btnOpen = new System.Windows.Forms.Button();
             this.ckFields = new System.Windows.Forms.CheckedListBox();
-            this.btnProcess = new System.Windows.Forms.Button();
             this.dgView = new System.Windows.Forms.DataGridView();
             this.listbox = new System.Windows.Forms.ListBox();
             this.btnSplit = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,6 +43,7 @@
             this.btnOpenPath = new System.Windows.Forms.Button();
             this.txtSavePath = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -81,16 +80,6 @@
             this.ckFields.Size = new System.Drawing.Size(173, 372);
             this.ckFields.TabIndex = 2;
             // 
-            // btnProcess
-            // 
-            this.btnProcess.Location = new System.Drawing.Point(859, 12);
-            this.btnProcess.Name = "btnProcess";
-            this.btnProcess.Size = new System.Drawing.Size(75, 23);
-            this.btnProcess.TabIndex = 3;
-            this.btnProcess.Text = "拆分地址";
-            this.btnProcess.UseVisualStyleBackColor = true;
-            this.btnProcess.Click += new System.EventHandler(this.btnProcess_Click);
-            // 
             // dgView
             // 
             this.dgView.AllowUserToAddRows = false;
@@ -100,14 +89,14 @@
             this.dgView.Name = "dgView";
             this.dgView.ReadOnly = true;
             this.dgView.RowTemplate.Height = 23;
-            this.dgView.Size = new System.Drawing.Size(640, 373);
+            this.dgView.Size = new System.Drawing.Size(889, 373);
             this.dgView.TabIndex = 4;
             // 
             // listbox
             // 
             this.listbox.FormattingEnabled = true;
             this.listbox.ItemHeight = 12;
-            this.listbox.Location = new System.Drawing.Point(874, 78);
+            this.listbox.Location = new System.Drawing.Point(1148, 173);
             this.listbox.Name = "listbox";
             this.listbox.Size = new System.Drawing.Size(422, 172);
             this.listbox.TabIndex = 5;
@@ -122,16 +111,6 @@
             this.btnSplit.Text = "开始拆分";
             this.btnSplit.UseVisualStyleBackColor = true;
             this.btnSplit.Click += new System.EventHandler(this.btnSplit_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1005, 47);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -197,16 +176,27 @@
             this.groupBox2.Controls.Add(this.dgView);
             this.groupBox2.Location = new System.Drawing.Point(214, 76);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(654, 398);
+            this.groupBox2.Size = new System.Drawing.Size(901, 398);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "数据展示";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(793, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(281, 60);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "使用方法：\r\n1：打开要拆分的Excel文件\r\n2：选择要拆分的地址列\r\n3：点击“开始拆分”按钮，拆分结果显示在列表内\r\n4：点击“保存到文件”按钮将拆分结果保" +
+    "存到Excel\r\n";
             // 
             // AddressSplit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1310, 482);
+            this.ClientSize = new System.Drawing.Size(1127, 482);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txtSavePath);
             this.Controls.Add(this.btnOpenPath);
@@ -214,10 +204,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSplit);
             this.Controls.Add(this.listbox);
-            this.Controls.Add(this.btnProcess);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.txtFilepath);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -240,11 +228,9 @@
         private System.Windows.Forms.TextBox txtFilepath;
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.CheckedListBox ckFields;
-        private System.Windows.Forms.Button btnProcess;
         private System.Windows.Forms.DataGridView dgView;
         private System.Windows.Forms.ListBox listbox;
         private System.Windows.Forms.Button btnSplit;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
@@ -252,6 +238,7 @@
         private System.Windows.Forms.Button btnOpenPath;
         private System.Windows.Forms.TextBox txtSavePath;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
