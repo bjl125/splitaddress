@@ -235,11 +235,53 @@ namespace AddressSplitForExcel
 
                 ProvinceList.Add(prov);
 
+                //整理省级市
+                foreach (var c in p.regionEntitys)
+                {
+                    AreaInfo city = new AreaInfo();
+                    city.Code = c.code;
+                    city.ParentCode = p.code;
+                    if (c.region.EndsWith("自治州"))
+                    {
+                        city.AreaFirstName = c.region.Substring(0, c.region.Length - 3);
+                        city.AreaLastName = "自治州";
+
+                        CityList.Add(city);
+                    }
+                    else if (c.region.EndsWith("地区"))
+                    {
+                        city.AreaFirstName = c.region.Substring(0, c.region.Length - 2);
+                        city.AreaLastName = "地区";
+                        CityList.Add(city);
+                    }
+                    else if (c.region.EndsWith("市") || c.region.EndsWith("盟")
+                        || c.region.EndsWith("县"))
+                    {
+                        city.AreaFirstName = c.region.Substring(0, c.region.Length - 1);
+                        city.AreaLastName = c.region.Substring(c.region.Length - 1, 1);
+                        if (city.AreaFirstName.Length <= 1)
+                        {
+                            continue;
+                        }
+                        CityList.Add(city);
+                    }
+                    else
+                    {
+                        //listbox.Items.Add(p.region + c.region);
+                        
+                    }
+
+                }
+
+
                 // listbox.Items.Add(prov.AreaFirstName);
                 //listbox.Items.Add(prov.AreaLastName);
             }
 
-
+            foreach(var c in CityList)
+            {
+                listbox.Items.Add(c.ParentCode + "-" + c.Code + "-" + c.AreaFirstName);
+            }
             // sr.Close();
             stream = null;
         }
@@ -339,7 +381,7 @@ namespace AddressSplitForExcel
 
         private void btnOpenPath_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("Explorer.exe", txtSavePath.Text.Substring(0, txtSavePath.Text.LastIndexOf("\\")+1));
+            System.Diagnostics.Process.Start("Explorer.exe", txtSavePath.Text.Substring(0, txtSavePath.Text.LastIndexOf("\\") + 1));
         }
     }
 }
