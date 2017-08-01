@@ -15,3 +15,4 @@ D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\obj\Release\
 D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\obj\Release\AddressSplitForExcel.exe
 D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\obj\Release\AddressSplitForExcel.pdb
 D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\obj\Release\AddressSplitForExcel.csprojResolveAssemblyReference.cache
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\obj\Release\AddressSplitForExcel.PMT.resources

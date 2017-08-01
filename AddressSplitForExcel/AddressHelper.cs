@@ -26,26 +26,34 @@ namespace AddressSplitForExcel
             }
             else
             {
-                city = GetCity(otherAddr, out otherAddr, citys);
+                var cityadd = GetCity(otherAddr, out otherAddr, provs, citys);
+                city = cityadd.AddrCity;
+                //若省为空，将城市的省赋值
+                if (String.IsNullOrEmpty(prov))
+                {
+                    adinfo.AddrPro = cityadd.AddrPro;
+                }
             }
             adinfo.AddrCity = city;
             adinfo.AddrOther = otherAddr;
             return adinfo;
         }
-        public static string GetCity(string add, out string otheradd, List<AreaInfo> citys)
+        public static AddressInfo GetCity(string add, out string otheradd, List<AreaInfo> proviences, List<AreaInfo> citys)
         {
             string city = string.Empty;
+            string parentcode = string.Empty;
+            AddressInfo addrinfo = new AddressInfo();
             if (!String.IsNullOrEmpty(add))
             {
                 if (add.IndexOf("自治州") > 0 && add.IndexOf("自治州") < 9)
                 {
                     city = add.Substring(0, add.IndexOf("自治州", 0) + 3);
                 }
-                else if (add.IndexOf("地区")>0 && add.IndexOf("地区")<=4)
+                else if (add.IndexOf("地区") > 0 && add.IndexOf("地区") <= 4)
                 {
                     city = add.Substring(0, add.IndexOf("地区", 0) + 2);
                 }
-                else if(add.IndexOf("市",0)>0 && add.IndexOf("市", 0) < 5)
+                else if (add.IndexOf("市", 0) > 0 && add.IndexOf("市", 0) < 5)
                 {
                     city = add.Substring(0, add.IndexOf("市", 0) + 1);
                 }
@@ -59,28 +67,55 @@ namespace AddressSplitForExcel
                 //}
                 else
                 {
-                    foreach(var c in citys)
+                    foreach (var c in citys)
                     {
                         if (add.StartsWith(c.AreaFirstName))
+                        {
+                            parentcode = c.ParentCode;
                             city = c.AreaFirstName;
+                            break;
+                        }
                     }
                 }
                 if (!String.IsNullOrWhiteSpace(city))
                 {
+                    //查找省
+                    if (!String.IsNullOrEmpty(parentcode))
+                    {
+                        var prov = proviences.Where(p => p.Code == parentcode).FirstOrDefault();
+                        if (prov != null)
+                        {
+                            addrinfo.AddrPro = prov.AreaFirstName + prov.AreaLastName;
+                        }
+                    }
+                    else
+                    {
+                        var prov = (from c in citys
+                                    from p in proviences
+                                    where c.ParentCode == p.Code && city.StartsWith(c.AreaFirstName)
+                                    select p).FirstOrDefault();
+                        if (prov != null)
+                        {
+                            addrinfo.AddrPro = prov.AreaFirstName + prov.AreaLastName;
+                        }
+
+                    }
                     otheradd = add.Substring(city.Length, add.Length - city.Length);
-                    return city;
+                    addrinfo.AddrCity = city;
+                    return addrinfo;
 
                 }
                 else
                 {
                     otheradd = add;
-                    return city;
+
+                    return addrinfo;
                 }
             }
             else
             {
                 otheradd = "";
-                return city;
+                return addrinfo;
             }
         }
         public static string GetProvince(string add, out string otheradd, List<AreaInfo> proviences)
