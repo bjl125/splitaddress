@@ -16,7 +16,7 @@ namespace AddressSplitForExcel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddressSplit());
+            Application.Run(new PMT());
         }
     }
 }
