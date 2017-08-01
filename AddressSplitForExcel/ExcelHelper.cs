@@ -25,6 +25,52 @@ namespace AddressSplitForExcel
             this.fileName = fileName;
             disposed = false;
         }
+        public bool SaveTableToExcel(string filename,DataTable dt,string sheetname,bool isFirstRow)
+        {
+            try
+            {
+
+                fs = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                IWorkbook wb = GetWorkbookFromTable(dt, sheetname, isFirstRow);
+                wb.Write(fs);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public XSSFWorkbook GetWorkbookFromTable(DataTable dt,string sheetName,bool isFirstRow)
+        {
+            int i = 0;
+            int j = 0;
+            int count = 0;
+            XSSFWorkbook wb = new XSSFWorkbook();
+            ISheet sheet = wb.CreateSheet(sheetName);
+
+            if (isFirstRow)
+            {
+                IRow row = sheet.CreateRow(0);
+                for (j = 0; j < dt.Columns.Count; ++j)
+                {
+                    row.CreateCell(j).SetCellValue(dt.Columns[j].ColumnName);
+                    count = 1;
+                }
+            }
+
+            for (i = 0; i < dt.Rows.Count; ++i)
+            {
+                IRow row = sheet.CreateRow(count);
+                for (j = 0; j < dt.Columns.Count; ++j)
+                {
+                    row.CreateCell(j).SetCellValue(dt.Rows[i][j].ToString());
+                }
+                ++count;
+            }
+
+            return wb;
+        }
 
         public List<string> GetSheetFields(string sheetName)
         {
