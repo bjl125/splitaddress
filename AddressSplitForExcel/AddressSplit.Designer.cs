@@ -96,9 +96,9 @@
             // 
             this.listbox.FormattingEnabled = true;
             this.listbox.ItemHeight = 12;
-            this.listbox.Location = new System.Drawing.Point(1148, 173);
+            this.listbox.Location = new System.Drawing.Point(1121, 95);
             this.listbox.Name = "listbox";
-            this.listbox.Size = new System.Drawing.Size(422, 172);
+            this.listbox.Size = new System.Drawing.Size(342, 376);
             this.listbox.TabIndex = 5;
             // 
             // btnSplit
@@ -195,7 +195,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1514, 482);
+            this.ClientSize = new System.Drawing.Size(1474, 482);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txtSavePath);

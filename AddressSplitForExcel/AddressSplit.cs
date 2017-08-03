@@ -268,7 +268,72 @@ namespace AddressSplitForExcel
                     else
                     {
                         //listbox.Items.Add(p.region + c.region);
-                        
+
+                    }
+
+
+                    //整理区县
+                    if (c.regionEntitys != null)
+                    {
+                        foreach (var r in c.regionEntitys)
+                        {
+                            if (r.region == "市辖区")
+                                continue;
+
+                            AreaInfo region = new AreaInfo();
+                            region.Code = r.code;
+                            region.ParentCode = c.code;
+                            region.AreaFirstName = r.region;
+
+                            //自治县  县 林区 区 市 旗 自治旗
+                            if (r.region.EndsWith("自治县"))
+                            {
+                                region.AreaFirstName = r.region.Substring(0, r.region.Length - 3);
+                                region.AreaLastName = "自治县";
+                                RegionList.Add(region);
+                                continue;
+                            }
+                            else if (r.region.EndsWith("自治旗"))
+                            {
+                                region.AreaFirstName = r.region.Substring(0, r.region.Length - 3);
+                                region.AreaLastName = "自治旗";
+                                RegionList.Add(region);
+                                continue;
+                            }
+                            else if (r.region.EndsWith("旗"))
+                            {
+                                region.AreaFirstName = r.region.Substring(0, r.region.Length - 1);
+                                region.AreaLastName = "旗";
+                                RegionList.Add(region);
+                                continue;
+                            }
+                            else if (r.region.EndsWith("县"))
+                            {
+                                region.AreaFirstName = r.region.Substring(0, r.region.Length - 1);
+                                region.AreaLastName = "县";
+                                RegionList.Add(region);
+                                continue;
+                            }
+                            else if (r.region.EndsWith("区"))
+                            {
+                                region.AreaFirstName = r.region.Substring(0, r.region.Length - 1);
+                                region.AreaLastName = "区";
+                                RegionList.Add(region);
+                                continue;
+                            }
+                            else if (r.region.EndsWith("市"))
+                            {
+                                region.AreaFirstName = r.region.Substring(0, r.region.Length - 1);
+                                region.AreaLastName = "市";
+                                RegionList.Add(region);
+                                continue;
+                            }
+                            else
+                            {
+                                region.AreaFirstName = r.region.Substring(0, r.region.Length - 1);
+                                RegionList.Add(region);
+                            }
+                        }
                     }
 
                 }
@@ -278,7 +343,7 @@ namespace AddressSplitForExcel
                 //listbox.Items.Add(prov.AreaLastName);
             }
 
-            foreach(var c in CityList)
+            foreach (var c in RegionList)
             {
                 listbox.Items.Add(c.ParentCode + "-" + c.Code + "-" + c.AreaFirstName);
             }
