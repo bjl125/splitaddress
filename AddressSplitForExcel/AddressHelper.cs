@@ -14,6 +14,7 @@ namespace AddressSplitForExcel
             string otherAddr = string.Empty;
             string prov = GetProvince(addr, out otherAddr, provs);
             string city = string.Empty;
+            string region = string.Empty;
 
             adinfo.AddrPro = prov;
 
@@ -34,9 +35,122 @@ namespace AddressSplitForExcel
                     adinfo.AddrPro = cityadd.AddrPro;
                 }
             }
+            //拆分区
+            var regionInfo = GetRegion(otherAddr, out otherAddr, provs, citys, regions);
+
             adinfo.AddrCity = city;
+            adinfo.AddrArea = regionInfo.AddrArea;
             adinfo.AddrOther = otherAddr;
             return adinfo;
+        }
+
+        public static AddressInfo GetRegion(string add, out string otheradd, List<AreaInfo> proviences, List<AreaInfo> citys, List<AreaInfo> regions)
+        {
+            string region = string.Empty;
+            string parentcode = string.Empty;
+            AddressInfo addrinfo = new AddressInfo();
+            if (!String.IsNullOrEmpty(add))
+            {
+                if (add.IndexOf("自治县") > 0 && add.IndexOf("自治县") < 9)
+                {
+                    region = add.Substring(0, add.IndexOf("自治州", 0) + 3);
+                }
+                else if (add.IndexOf("自治旗") > 0 && add.IndexOf("自治旗") <= 7)
+                {
+                    region = add.Substring(0, add.IndexOf("地区", 0) + 2);
+                }
+                else if (add.IndexOf("市", 0) > 0 && add.IndexOf("市", 0) < 5)
+                {
+                    region = add.Substring(0, add.IndexOf("市", 0) + 1);
+                }
+                else if (add.IndexOf("区", 0) > 0 && add.IndexOf("区", 0) < 5)
+                {
+                    region = add.Substring(0, add.IndexOf("区", 0) + 1);
+                }
+                else if (add.IndexOf("旗", 0) > 0 && add.IndexOf("旗", 0) < 5)
+                {
+                    region = add.Substring(0, add.IndexOf("旗", 0) + 1);
+                }
+                else if (add.IndexOf("县", 0) > 0 && add.IndexOf("县", 0) < 5)
+                {
+                    region = add.Substring(0, add.IndexOf("县", 0) + 1);
+                }
+                else
+                {
+                    var addrregion = (from r in regions
+                                      where add.StartsWith(r.AreaFirstName)
+                                      select r).FirstOrDefault() ;
+                    
+                    if(addrregion != null)
+                    {
+                        parentcode = addrregion.ParentCode;
+                        region = addrregion.AreaFirstName;
+                    }
+
+                    //foreach (var r in regions)
+                    //{
+                    //    if (add.StartsWith(r.AreaFirstName))
+                    //    {
+                    //        parentcode = r.ParentCode;
+                    //        region = r.AreaFirstName;
+                    //        break;
+                    //    }
+                    //}
+                }
+                if (!String.IsNullOrWhiteSpace(region))
+                {
+                    //查找省市
+                    if (!String.IsNullOrEmpty(parentcode))
+                    {
+                        var ad = (from c in citys
+                                  from p in proviences
+                                  where c.ParentCode == p.Code && c.Code == parentcode
+                                  select new
+                                  {
+                                      provname = p.AreaFirstName + p.AreaLastName,
+                                      cityname = c.AreaFirstName + c.AreaLastName
+                                  }).FirstOrDefault();
+                        if (ad != null)
+                        {
+                            addrinfo.AddrPro = ad.provname;
+                            addrinfo.AddrCity = ad.cityname;
+                        }
+                    }
+                    else
+                    {
+                        var ad = (from r in regions
+                                  from c in citys
+                                  from p in proviences
+                                  where r.ParentCode == c.Code && c.ParentCode == p.Code && region.StartsWith(r.AreaFirstName)
+                                  select new
+                                  {
+                                      provname = p.AreaFirstName + p.AreaLastName,
+                                      cityname = c.AreaFirstName + c.AreaLastName
+                                  }).FirstOrDefault();
+                        if (ad != null)
+                        {
+                            addrinfo.AddrPro = ad.provname;
+                            addrinfo.AddrCity = ad.cityname;
+                        }
+
+                    }
+                    otheradd = add.Substring(region.Length, add.Length - region.Length);
+                    addrinfo.AddrArea = region;
+                    return addrinfo;
+
+                }
+                else
+                {
+                    otheradd = add;
+
+                    return addrinfo;
+                }
+            }
+            else
+            {
+                otheradd = "";
+                return addrinfo;
+            }
         }
         public static AddressInfo GetCity(string add, out string otheradd, List<AreaInfo> proviences, List<AreaInfo> citys)
         {
