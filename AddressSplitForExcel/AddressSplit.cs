@@ -105,8 +105,12 @@ namespace AddressSplitForExcel
             {
                 if (exceldt.Rows.Count > 0)
                 {
+                    btnSplit.Enabled = false;
+                    progressBar1.Maximum = exceldt.Rows.Count;
                     for (int i = 0; i < exceldt.Rows.Count; i++)
                     {
+                        progressBar1.Value = i + 1;
+                        labprocess.Text = i.ToString();
                         foreach (var f in fields)
                         {
                             AddressInfo ad = new AddressInfo();
@@ -119,21 +123,22 @@ namespace AddressSplitForExcel
 
                             AddrList.Add(ad);
 
-                            listbox.Items.Add(ad.AddrPro);
-                            listbox.Items.Add(ad.AddrOther);
+                            //listbox.Items.Add(ad.AddrPro);
+                            // listbox.Items.Add(ad.AddrOther);
 
                         }
                     }
+
+                    resultDT = GenerateDatatableForExcel(exceldt, AddrList);
+
+                    dgView.DataSource = resultDT;
+
+                    if (resultDT != null)
+                    {
+                        btnSave.Enabled = true;
+                    }
                 }
-
-                resultDT = GenerateDatatableForExcel(exceldt, AddrList);
-
-                dgView.DataSource = resultDT;
-
-                if (resultDT != null)
-                {
-                    btnSave.Enabled = true;
-                }
+                btnSplit.Enabled = true;
 
             }
             else
@@ -145,34 +150,34 @@ namespace AddressSplitForExcel
         {
             DataTable data = dt.Copy();
 
-            DataColumn dcp = new DataColumn("省");
-            DataColumn dcs = new DataColumn("市");
-            DataColumn dcq = new DataColumn("区");
-            DataColumn dco = new DataColumn("详细地址");
+            DataColumn dcp = new DataColumn("买家收货省（必填）");
+            DataColumn dcs = new DataColumn("买家收货市（必填）");
+            DataColumn dcq = new DataColumn("买家收货区（必填）");
+            DataColumn dco = new DataColumn("买家收货地址（必填）");
 
-            if (!data.Columns.Contains("省"))
+            if (!data.Columns.Contains("买家收货省（必填）"))
             {
                 data.Columns.Add(dcp);
             }
-            if (!data.Columns.Contains("市"))
+            if (!data.Columns.Contains("买家收货市（必填）"))
             {
                 data.Columns.Add(dcs);
             }
-            if (!data.Columns.Contains("区"))
+            if (!data.Columns.Contains("买家收货区（必填）"))
             {
                 data.Columns.Add(dcq);
             }
-            if (!data.Columns.Contains("详细地址"))
+            if (!data.Columns.Contains("买家收货地址（必填）"))
             {
                 data.Columns.Add(dco);
             }
 
             foreach (var addr in addrlist)
             {
-                data.Rows[addr.RowNum]["省"] = addr.AddrPro;
-                data.Rows[addr.RowNum]["市"] = addr.AddrCity;
-                data.Rows[addr.RowNum]["区"] = addr.AddrArea;
-                data.Rows[addr.RowNum]["详细地址"] = addr.AddrOther;
+                data.Rows[addr.RowNum]["买家收货省（必填）"] = addr.AddrPro;
+                data.Rows[addr.RowNum]["买家收货市（必填）"] = addr.AddrCity;
+                data.Rows[addr.RowNum]["买家收货区（必填）"] = addr.AddrArea;
+                data.Rows[addr.RowNum]["买家收货地址（必填）"] = addr.AddrOther;
             }
 
             return data;
@@ -268,7 +273,72 @@ namespace AddressSplitForExcel
                     else
                     {
                         //listbox.Items.Add(p.region + c.region);
-                        
+
+                    }
+
+
+                    //整理区县
+                    if (c.regionEntitys != null)
+                    {
+                        foreach (var r in c.regionEntitys)
+                        {
+                            if (r.region == "市辖区")
+                                continue;
+
+                            AreaInfo region = new AreaInfo();
+                            region.Code = r.code;
+                            region.ParentCode = c.code;
+                            region.AreaFirstName = r.region;
+
+                            //自治县  县 林区 区 市 旗 自治旗
+                            if (r.region.EndsWith("自治县"))
+                            {
+                                region.AreaFirstName = r.region.Substring(0, r.region.Length - 3);
+                                region.AreaLastName = "自治县";
+                                RegionList.Add(region);
+                                continue;
+                            }
+                            else if (r.region.EndsWith("自治旗"))
+                            {
+                                region.AreaFirstName = r.region.Substring(0, r.region.Length - 3);
+                                region.AreaLastName = "自治旗";
+                                RegionList.Add(region);
+                                continue;
+                            }
+                            else if (r.region.EndsWith("旗"))
+                            {
+                                region.AreaFirstName = r.region.Substring(0, r.region.Length - 1);
+                                region.AreaLastName = "旗";
+                                RegionList.Add(region);
+                                continue;
+                            }
+                            else if (r.region.EndsWith("县"))
+                            {
+                                region.AreaFirstName = r.region.Substring(0, r.region.Length - 1);
+                                region.AreaLastName = "县";
+                                RegionList.Add(region);
+                                continue;
+                            }
+                            else if (r.region.EndsWith("区"))
+                            {
+                                region.AreaFirstName = r.region.Substring(0, r.region.Length - 1);
+                                region.AreaLastName = "区";
+                                RegionList.Add(region);
+                                continue;
+                            }
+                            else if (r.region.EndsWith("市"))
+                            {
+                                region.AreaFirstName = r.region.Substring(0, r.region.Length - 1);
+                                region.AreaLastName = "市";
+                                RegionList.Add(region);
+                                continue;
+                            }
+                            else
+                            {
+                                region.AreaFirstName = r.region.Substring(0, r.region.Length - 1);
+                                RegionList.Add(region);
+                            }
+                        }
                     }
 
                 }
@@ -278,10 +348,10 @@ namespace AddressSplitForExcel
                 //listbox.Items.Add(prov.AreaLastName);
             }
 
-            foreach(var c in CityList)
-            {
-                listbox.Items.Add(c.ParentCode + "-" + c.Code + "-" + c.AreaFirstName);
-            }
+            //foreach (var c in RegionList)
+            //{
+            //    listbox.Items.Add(c.ParentCode + "-" + c.Code + "-" + c.AreaFirstName);
+            //}
             // sr.Close();
             stream = null;
         }
@@ -342,8 +412,8 @@ namespace AddressSplitForExcel
 
                 ProvinceList.Add(prov);
 
-                listbox.Items.Add(prov.AreaFirstName);
-                listbox.Items.Add(prov.AreaLastName);
+                // listbox.Items.Add(prov.AreaFirstName);
+                // listbox.Items.Add(prov.AreaLastName);
             }
 
 

@@ -44,6 +44,9 @@
             this.txtSavePath = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.labprocess = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -96,9 +99,9 @@
             // 
             this.listbox.FormattingEnabled = true;
             this.listbox.ItemHeight = 12;
-            this.listbox.Location = new System.Drawing.Point(1148, 173);
+            this.listbox.Location = new System.Drawing.Point(1233, 112);
             this.listbox.Name = "listbox";
-            this.listbox.Size = new System.Drawing.Size(422, 172);
+            this.listbox.Size = new System.Drawing.Size(212, 376);
             this.listbox.TabIndex = 5;
             // 
             // btnSplit
@@ -124,7 +127,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.ckFields);
-            this.groupBox1.Location = new System.Drawing.Point(22, 76);
+            this.groupBox1.Location = new System.Drawing.Point(22, 112);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(186, 398);
             this.groupBox1.TabIndex = 10;
@@ -174,7 +177,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgView);
-            this.groupBox2.Location = new System.Drawing.Point(214, 76);
+            this.groupBox2.Location = new System.Drawing.Point(214, 112);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(901, 398);
             this.groupBox2.TabIndex = 14;
@@ -184,24 +187,55 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(793, 18);
+            this.label3.Location = new System.Drawing.Point(792, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(281, 60);
             this.label3.TabIndex = 15;
             this.label3.Text = "使用方法：\r\n1：打开要拆分的Excel文件\r\n2：选择要拆分的地址列\r\n3：点击“开始拆分”按钮，拆分结果显示在列表内\r\n4：点击“保存到文件”按钮将拆分结果保" +
     "存到Excel\r\n";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(85, 78);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(490, 23);
+            this.progressBar1.TabIndex = 5;
+            // 
+            // labprocess
+            // 
+            this.labprocess.AutoSize = true;
+            this.labprocess.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labprocess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.labprocess.Location = new System.Drawing.Point(581, 83);
+            this.labprocess.Name = "labprocess";
+            this.labprocess.Size = new System.Drawing.Size(19, 12);
+            this.labprocess.TabIndex = 16;
+            this.labprocess.Text = "0%";
+            this.labprocess.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(20, 83);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "拆分进度";
+            // 
             // AddressSplit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1126, 482);
+            this.ClientSize = new System.Drawing.Size(1122, 516);
+            this.Controls.Add(this.labprocess);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txtSavePath);
             this.Controls.Add(this.btnOpenPath);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSplit);
@@ -239,6 +273,9 @@
         private System.Windows.Forms.TextBox txtSavePath;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label labprocess;
+        private System.Windows.Forms.Label label4;
     }
 }
 
