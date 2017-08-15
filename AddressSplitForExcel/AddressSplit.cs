@@ -191,7 +191,7 @@ namespace AddressSplitForExcel
 
             Assembly _assembly = Assembly.GetExecutingAssembly();
 
-            string rsname = _namespace + ".json1.json";
+            string rsname = _namespace + ".citys.json";
 
             Stream stream = _assembly.GetManifestResourceStream(rsname);
             List<RegionInfo> list = new List<RegionInfo>();
