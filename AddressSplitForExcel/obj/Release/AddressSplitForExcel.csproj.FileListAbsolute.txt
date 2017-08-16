@@ -17,3 +17,7 @@ D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\obj\Release\
 D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\obj\Release\AddressSplitForExcel.csprojResolveAssemblyReference.cache
 D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\obj\Release\AddressSplitForExcel.PMT.resources
 D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\obj\Release\AddressSplitForExcel.UIMask.resources
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\bin\Release\AddressSplitForExcel.exe.manifest
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\bin\Release\AddressSplitForExcel.application
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\obj\Release\AddressSplitForExcel.exe.manifest
+D:\MyProject\AddressSplitForExcel\splitaddress\AddressSplitForExcel\obj\Release\AddressSplitForExcel.application

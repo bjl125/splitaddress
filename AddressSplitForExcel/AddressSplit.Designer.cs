@@ -247,7 +247,7 @@
             this.MaximizeBox = false;
             this.Name = "AddressSplit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Excel地址拆分";
+            this.Text = "义鑫邦物流Excel地址拆分";
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

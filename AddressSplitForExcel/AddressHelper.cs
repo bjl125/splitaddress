@@ -64,8 +64,11 @@ namespace AddressSplitForExcel
                     region = add.Substring(0, add.IndexOf("市", 0) + 1);
                 }
                 else if (add.IndexOf("区", 0) > 0 && add.IndexOf("区", 0) < 5)
-                {
+                {                    
                     region = add.Substring(0, add.IndexOf("区", 0) + 1);
+                    //排除小区
+                    if (region.EndsWith("小区"))
+                        region = string.Empty;
                 }
                 else if (add.IndexOf("旗", 0) > 0 && add.IndexOf("旗", 0) < 5)
                 {
@@ -75,7 +78,9 @@ namespace AddressSplitForExcel
                 {
                     region = add.Substring(0, add.IndexOf("县", 0) + 1);
                 }
-                else
+                
+                //为空重新查找
+                if(String.IsNullOrEmpty(region))
                 {
                     var addrregion = (from r in regions
                                       where add.StartsWith(r.AreaFirstName)
