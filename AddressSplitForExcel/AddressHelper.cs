@@ -36,10 +36,10 @@ namespace AddressSplitForExcel
                 }
             }
             //拆分区
-            var regionInfo = GetRegion(otherAddr, out otherAddr, provs, citys, regions);
+            //var regionInfo = GetRegion(otherAddr, out otherAddr, provs, citys, regions);
 
             adinfo.AddrCity = city;
-            adinfo.AddrArea = regionInfo.AddrArea;
+            adinfo.AddrArea = region;
             adinfo.AddrOther = otherAddr;
             return adinfo;
         }

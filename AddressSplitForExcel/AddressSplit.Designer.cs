@@ -47,6 +47,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.labprocess = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -177,7 +178,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgView);
-            this.groupBox2.Location = new System.Drawing.Point(214, 112);
+            this.groupBox2.Location = new System.Drawing.Point(544, 112);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(901, 398);
             this.groupBox2.TabIndex = 14;
@@ -222,11 +223,21 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "拆分进度";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Location = new System.Drawing.Point(214, 112);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(324, 398);
+            this.groupBox3.TabIndex = 17;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "数据对应设置";
+            // 
             // AddressSplit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1122, 516);
+            this.ClientSize = new System.Drawing.Size(1543, 637);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.labprocess);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label3);
@@ -276,6 +287,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label labprocess;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
 
