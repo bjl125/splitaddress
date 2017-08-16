@@ -178,7 +178,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgView);
-            this.groupBox2.Location = new System.Drawing.Point(544, 112);
+            this.groupBox2.Location = new System.Drawing.Point(630, 112);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(901, 398);
             this.groupBox2.TabIndex = 14;
@@ -227,7 +227,7 @@
             // 
             this.groupBox3.Location = new System.Drawing.Point(214, 112);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(324, 398);
+            this.groupBox3.Size = new System.Drawing.Size(410, 398);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "数据对应设置";
