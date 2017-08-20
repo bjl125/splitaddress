@@ -33,9 +33,48 @@ namespace AddressSplitForExcel
         public AddressSplit()
         {
             InitializeComponent();
+            InitConfig();
             GenerateAreainfoList();
+            richTextBox1.Text = ConfigHelper.GetLocalConfigJson();
         }
 
+        public AppConfig AppConfigInfo { set; get; }
+        /// <summary>
+        /// 初始化配置信息
+        /// </summary>
+        public void InitConfig()
+        {
+            AppConfig config = ConfigHelper.GetAppConfig();
+            this.AppConfigInfo = config;
+            foreach (string field in config.TempFields)
+            {
+                lbTempFields.Items.Add(field);
+            }
+            //默认选择
+            foreach (string field in config.DefaultSelectedFields)
+            {
+                lbSelectedFields.Items.Add(field);
+                if (lbTempFields.Items.Contains(field))
+                {
+                    lbTempFields.Items.Remove(field);
+                }
+            }
+        }
+
+        public void UpdateConfigInfo()
+        {
+            this.AppConfigInfo.DefaultFileFields.Clear();
+            this.AppConfigInfo.DefaultSelectedFields.Clear();
+
+            foreach (var field in lbFileSelected.Items)
+            {
+                this.AppConfigInfo.DefaultFileFields.Add(field.ToString());
+            }
+            foreach(var field in lbSelectedFields.Items)
+            {
+                this.AppConfigInfo.DefaultSelectedFields.Add(field.ToString());
+            }
+        }
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
@@ -55,6 +94,17 @@ namespace AddressSplitForExcel
                 List<string> listfields = eh.GetSheetFields("");
                 ckFields.Items.Clear();
                 ckFields.Items.AddRange(listfields.ToArray());
+
+                //设置可选择列
+                lbFileFields.Items.Clear();
+                lbFileFields.Items.AddRange(listfields.ToArray());
+
+                var f = "";
+                foreach (var s in listfields)
+                {
+                    f += "\"" + s + "\",";
+                }
+                richTextBox1.Text = f;
 
                 exceldt = eh.ExcelToDataTable("", true);
                 dgView.DataSource = exceldt;
@@ -103,6 +153,9 @@ namespace AddressSplitForExcel
             var fields = GetCheckedColumns();
             if (fields.Count > 0)
             {
+                //设置已选择的文件列配置
+                UpdateConfigInfo();
+
                 if (exceldt.Rows.Count > 0)
                 {
                     btnSplit.Enabled = false;
@@ -136,6 +189,8 @@ namespace AddressSplitForExcel
                     if (resultDT != null)
                     {
                         btnSave.Enabled = true;
+                        //保存配置项
+                        ConfigHelper.SaveConfigToFile(this.AppConfigInfo);
                     }
                 }
                 btnSplit.Enabled = true;
@@ -452,6 +507,111 @@ namespace AddressSplitForExcel
         private void btnOpenPath_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("Explorer.exe", txtSavePath.Text.Substring(0, txtSavePath.Text.LastIndexOf("\\") + 1));
+        }
+
+        private void lbSelectedFields_DoubleClick(object sender, EventArgs e)
+        {
+            var listbox = (ListBox)sender;
+            string selecteditem = listbox.SelectedItem.ToString();
+            lbTempFields.Items.Add(selecteditem);
+            listbox.Items.RemoveAt(listbox.SelectedIndex);
+        }
+
+        private void lbTempFields_DoubleClick(object sender, EventArgs e)
+        {
+
+            var listbox = (ListBox)sender;
+            string selecteditem = listbox.SelectedItem.ToString();
+            lbSelectedFields.Items.Add(selecteditem);
+            listbox.Items.RemoveAt(listbox.SelectedIndex);
+        }
+
+        private void lbFileFields_DoubleClick(object sender, EventArgs e)
+        {
+
+            var listbox = (ListBox)sender;
+            string selecteditem = listbox.SelectedItem.ToString();
+            lbFileSelected.Items.Add(selecteditem);
+            listbox.Items.RemoveAt(listbox.SelectedIndex);
+        }
+
+        private void lbFileSelected_DoubleClick(object sender, EventArgs e)
+        {
+
+            var listbox = (ListBox)sender;
+            string selecteditem = listbox.SelectedItem.ToString();
+            lbFileFields.Items.Add(selecteditem);
+            listbox.Items.RemoveAt(listbox.SelectedIndex);
+        }
+
+        private void btnTempRemoveAll_Click(object sender, EventArgs e)
+        {
+            MoveSelectedItems(lbSelectedFields, lbTempFields);
+        }
+
+        private void btnTempAddAll_Click(object sender, EventArgs e)
+        {
+            MoveSelectedItems(lbTempFields, lbSelectedFields);
+        }
+
+        private void btnSourceRemoveAll_Click(object sender, EventArgs e)
+        {
+
+            MoveSelectedItems(lbFileSelected, lbFileFields);
+        }
+
+        private void btnSourceAddAll_Click(object sender, EventArgs e)
+        {
+
+            MoveSelectedItems(lbFileFields, lbFileSelected);
+        }
+
+        private void MoveSelectedItems(ListBox source, ListBox des)
+        {
+            var listbox = (ListBox)source;
+            des.Items.AddRange(listbox.Items);
+            listbox.Items.Clear();
+        }
+        /// <summary>
+        /// 移动items排序
+        /// </summary>
+        /// <param name="listbox">Listbox</param>
+        /// <param name="upordown">UP Dwon 标记：1为Up,0为Down</param>
+        public void MoveUpDownItems(ListBox listbox, int upordown, object sender)
+        {
+            //上移
+            if (upordown == 1)
+            {
+                if (listbox.SelectedIndex > 0)
+                {
+                    int index = listbox.SelectedIndex;
+                    var temp = listbox.Items[index - 1];
+                    listbox.Items[index - 1] = listbox.SelectedItem;
+                    listbox.Items[index] = temp;
+                    listbox.SelectedIndex = index - 1;
+                }
+            }
+            else if (upordown == 0)
+            {
+                if (listbox.SelectedIndex < listbox.Items.Count - 1)
+                {
+                    int index = listbox.SelectedIndex;
+                    var temp = listbox.Items[index + 1];
+                    listbox.Items[index + 1] = listbox.SelectedItem;
+                    listbox.Items[index] = temp;
+                    listbox.SelectedIndex = index + 1;
+                }
+            }
+        }
+
+        private void btnTempUp_Click(object sender, EventArgs e)
+        {
+            MoveUpDownItems(lbSelectedFields, 1, sender);
+        }
+
+        private void btnTempDown_Click(object sender, EventArgs e)
+        {
+            MoveUpDownItems(lbSelectedFields, 0, sender);
         }
     }
 }

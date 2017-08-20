@@ -108,7 +108,9 @@
     <Compile Include="AddressSplit.Designer.cs">
       <DependentUpon>AddressSplit.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppConfig.cs" />
     <Compile Include="AreaInfo.cs" />
+    <Compile Include="ConfigHelper.cs" />
     <Compile Include="ExcelHelper.cs" />
     <Compile Include="PMT.cs">
       <SubType>Form</SubType>
@@ -139,12 +141,14 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="citys.json" />
     <EmbeddedResource Include="UIMask.resx">
       <DependentUpon>UIMask.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="AddressSplitForExcel_TemporaryKey.pfx" />
+    <None Include="config.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -162,6 +166,10 @@
   <ItemGroup>
     <Content Include="Excel_128px_1185986_easyicon.net.ico" />
     <Content Include="location_128px_1200654_easyicon.net.ico" />
+    <None Include="Resources\icons8-Sort Up-20.png" />
+    <None Include="Resources\icons8-Sort Down-20.png" />
+    <None Include="Resources\icons8-Double Up-20.png" />
+    <None Include="Resources\icons8-Double Down-20.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -176,6 +184,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>copy $(ProjectDir)config.json $(ProjectDir)$(OutDir)config.json</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

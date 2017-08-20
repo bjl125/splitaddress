@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AddressSplitForExcel.exe" size="488880">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AddressSplitForExcel.exe" size="504752">
       <assemblyIdentity name="AddressSplitForExcel" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+ewP9+5SHbh9WQad3yDWSi5dBvv9sIvz9nmkWwYR/nE=</dsig:DigestValue>
+        <dsig:DigestValue>obTHIp40qP6APvGliXssptHRnewH4Yikn0uKPlqYciM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -126,13 +126,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="AddressSplitForExcel.exe.config" size="187">
+  <file name="AddressSplitForExcel.exe.config" size="260">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>xm4bo26HQ0LNVwz1vdPYtzhkpMnp2AI5i+f0b+OahTI=</dsig:DigestValue>
+      <dsig:DigestValue>JbuIIQm+bhqVEtnBK+RrWFrU+Xl9d9B9JRY96n+KWng=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Excel_128px_1185986_easyicon.net.ico" size="67646">

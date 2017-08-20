@@ -119,7 +119,7 @@ namespace AddressSplitForExcel
                 }
                 return list;
             }
-            catch (Exception ex)
+            catch
             {
                 return null;
             }
@@ -202,7 +202,7 @@ namespace AddressSplitForExcel
                 }
                 return data;
             }
-            catch (Exception ex)
+            catch
             {
                 return null;
             }
