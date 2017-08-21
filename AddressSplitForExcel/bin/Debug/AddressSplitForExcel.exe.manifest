@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AddressSplitForExcel.exe" size="516016">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AddressSplitForExcel.exe" size="518064">
       <assemblyIdentity name="AddressSplitForExcel" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zehHIA9KiMU6LecPIYiXt4RSR6jY0IgK3J/Y2oodATI=</dsig:DigestValue>
+        <dsig:DigestValue>jCbQW0Ctsz6uXYVNxTT694oaB/xARj6mQZNzVNgf29c=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

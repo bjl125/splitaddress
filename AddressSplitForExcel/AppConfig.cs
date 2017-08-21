@@ -12,5 +12,19 @@ namespace AddressSplitForExcel
 
         public List<string> DefaultSelectedFields { set; get; }
         public List<string> DefaultFileFields { set; get; }
+
+        public List<string> SplitFields { set; get; }
+    }
+
+    public class TableFieldBind
+    {
+        /// <summary>
+        /// 文件列
+        /// </summary>
+        public string FileField { set; get; }
+        /// <summary>
+        /// 模板对应列
+        /// </summary>
+        public string TempField { set; get; }
     }
 }

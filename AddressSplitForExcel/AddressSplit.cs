@@ -20,10 +20,16 @@ namespace AddressSplitForExcel
     {
         private DataTable exceldt = null;
         private DataTable resultDT = null;
+        private DataTable tempDT = null;
         private List<AreaInfo> ProvinceList = new List<AreaInfo>();
         private List<AreaInfo> CityList = new List<AreaInfo>();
         private List<AreaInfo> RegionList = new List<AreaInfo>();
         private List<AddressInfo> AddrList = new List<AddressInfo>();
+
+        /// <summary>
+        /// 文件列与模板列对应列表
+        /// </summary>
+        List<TableFieldBind> TableFileFields = new List<TableFieldBind>();
 
         List<string> nxshort = new List<string>() { "宁夏回族", "宁夏" };
         List<string> nmshort = new List<string>() { "内蒙古", "内蒙" };
@@ -35,7 +41,7 @@ namespace AddressSplitForExcel
             InitializeComponent();
             InitConfig();
             GenerateAreainfoList();
-            richTextBox1.Text = ConfigHelper.GetLocalConfigJson();
+            //richTextBox1.Text = ConfigHelper.GetLocalConfigJson();
         }
 
         public AppConfig AppConfigInfo { set; get; }
@@ -59,6 +65,10 @@ namespace AddressSplitForExcel
                     lbTempFields.Items.Remove(field);
                 }
             }
+            foreach (string field in config.SplitFields)
+            {
+                lbFileSelected.Items.Add(field);
+            }
         }
 
         public void UpdateConfigInfo()
@@ -70,7 +80,7 @@ namespace AddressSplitForExcel
             {
                 this.AppConfigInfo.DefaultFileFields.Add(field.ToString());
             }
-            foreach(var field in lbSelectedFields.Items)
+            foreach (var field in lbSelectedFields.Items)
             {
                 this.AppConfigInfo.DefaultSelectedFields.Add(field.ToString());
             }
@@ -97,6 +107,7 @@ namespace AddressSplitForExcel
 
                 //设置可选择列
                 lbFileFields.Items.Clear();
+                lbFileFields.Items.AddRange(AppConfigInfo.SplitFields.ToArray());
                 lbFileFields.Items.AddRange(listfields.ToArray());
 
                 var f = "";
@@ -104,7 +115,7 @@ namespace AddressSplitForExcel
                 {
                     f += "\"" + s + "\",";
                 }
-                richTextBox1.Text = f;
+                //richTextBox1.Text = f;
 
                 exceldt = eh.ExcelToDataTable("", true);
                 dgView.DataSource = exceldt;
@@ -114,6 +125,16 @@ namespace AddressSplitForExcel
                 //    ckFields.Items.Add
                 //}
 
+                //设置上次保存的列
+                lbFileSelected.Items.Clear();
+                foreach (var field in this.AppConfigInfo.DefaultFileFields)
+                {
+                    if (lbFileFields.Items.Contains(field))
+                    {
+                        lbFileSelected.Items.Add(field);
+                        lbFileFields.Items.Remove(field);
+                    }
+                }
                 btnSplit.Enabled = true;
             }
 
@@ -155,7 +176,15 @@ namespace AddressSplitForExcel
             {
                 //设置已选择的文件列配置
                 UpdateConfigInfo();
-
+                //设置列对应关系
+                TableFileFields.Clear();
+                for (int i = 0; i < lbSelectedFields.Items.Count; i++)
+                {
+                    if (lbFileSelected.Items.Count > i)
+                        TableFileFields.Add(new TableFieldBind { TempField = lbSelectedFields.Items[i].ToString(), FileField = lbFileSelected.Items[i].ToString() });
+                    else
+                        break;
+                }
                 if (exceldt.Rows.Count > 0)
                 {
                     btnSplit.Enabled = false;
@@ -182,18 +211,30 @@ namespace AddressSplitForExcel
                         }
                     }
 
+                    //拆分后结果
+
                     resultDT = GenerateDatatableForExcel(exceldt, AddrList);
 
                     dgView.DataSource = resultDT;
 
                     if (resultDT != null)
                     {
+                        //生成模板表
+                        tempDT = GenerateTempDatatabelForExcel(resultDT, TableFileFields);
+
+                        dgTempView.DataSource = tempDT;
+
                         btnSave.Enabled = true;
                         //保存配置项
                         ConfigHelper.SaveConfigToFile(this.AppConfigInfo);
                     }
                 }
                 btnSplit.Enabled = true;
+
+                //foreach (var f in TableFileFields)
+                //{
+                //    richTextBox1.Text += "\n" + f.FileField + " --- " + f.TempField;
+                //}
 
             }
             else
@@ -204,39 +245,61 @@ namespace AddressSplitForExcel
         private DataTable GenerateDatatableForExcel(DataTable dt, List<AddressInfo> addrlist)
         {
             DataTable data = dt.Copy();
+            //"拆分后省","拆分后市","拆分后区","拆分后详细地址"
+            DataColumn dcp = new DataColumn("拆分后省");
+            DataColumn dcs = new DataColumn("拆分后市");
+            DataColumn dcq = new DataColumn("拆分后区");
+            DataColumn dco = new DataColumn("拆分后详细地址");
 
-            DataColumn dcp = new DataColumn("买家收货省（必填）");
-            DataColumn dcs = new DataColumn("买家收货市（必填）");
-            DataColumn dcq = new DataColumn("买家收货区（必填）");
-            DataColumn dco = new DataColumn("买家收货地址（必填）");
-
-            if (!data.Columns.Contains("买家收货省（必填）"))
+            if (!data.Columns.Contains("拆分后省"))
             {
                 data.Columns.Add(dcp);
             }
-            if (!data.Columns.Contains("买家收货市（必填）"))
+            if (!data.Columns.Contains("拆分后市"))
             {
                 data.Columns.Add(dcs);
             }
-            if (!data.Columns.Contains("买家收货区（必填）"))
+            if (!data.Columns.Contains("拆分后区"))
             {
                 data.Columns.Add(dcq);
             }
-            if (!data.Columns.Contains("买家收货地址（必填）"))
+            if (!data.Columns.Contains("拆分后详细地址"))
             {
                 data.Columns.Add(dco);
             }
 
             foreach (var addr in addrlist)
             {
-                data.Rows[addr.RowNum]["买家收货省（必填）"] = addr.AddrPro;
-                data.Rows[addr.RowNum]["买家收货市（必填）"] = addr.AddrCity;
-                data.Rows[addr.RowNum]["买家收货区（必填）"] = addr.AddrArea;
-                data.Rows[addr.RowNum]["买家收货地址（必填）"] = addr.AddrOther;
+                data.Rows[addr.RowNum]["拆分后省"] = addr.AddrPro;
+                data.Rows[addr.RowNum]["拆分后市"] = addr.AddrCity;
+                data.Rows[addr.RowNum]["拆分后区"] = addr.AddrArea;
+                data.Rows[addr.RowNum]["拆分后详细地址"] = addr.AddrOther;
             }
-
             return data;
 
+        }
+
+        private DataTable GenerateTempDatatabelForExcel(DataTable resultdt, List<TableFieldBind> binds)
+        {
+            DataTable tempdt = new DataTable();
+            //生成模板表
+            foreach (string tempfield in AppConfigInfo.TempFields)
+            {
+                DataColumn dc = new DataColumn(tempfield);
+                tempdt.Columns.Add(dc);
+            }
+            //填写数据
+            for (int i = 0; i < resultdt.Rows.Count; i++)
+            {
+                DataRow dr = tempdt.NewRow();
+                foreach (var fieldbind in binds)
+                {
+                    if (resultdt.Columns.Contains(fieldbind.FileField))
+                        dr[fieldbind.TempField] = resultdt.Rows[i][fieldbind.FileField];
+                }
+                tempdt.Rows.Add(dr);
+            }
+            return tempdt;
         }
         private void GenerateAreainfoList()
         {
@@ -484,10 +547,10 @@ namespace AddressSplitForExcel
             {
                 txtSavePath.Text = sfd.FileName;
 
-                if (resultDT != null)
+                if (tempDT != null)
                 {
                     ExcelHelper eh = new ExcelHelper(txtSavePath.Text);
-                    var r = eh.SaveTableToExcel(txtSavePath.Text, resultDT, "sheet1", true);
+                    var r = eh.SaveTableToExcel(txtSavePath.Text, tempDT, "sheet1", true);
                     if (r)
                     {
                         MessageBox.Show("保存成功");
@@ -613,5 +676,6 @@ namespace AddressSplitForExcel
         {
             MoveUpDownItems(lbSelectedFields, 0, sender);
         }
+        
     }
 }
