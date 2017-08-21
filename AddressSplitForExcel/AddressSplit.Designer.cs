@@ -67,6 +67,9 @@
             this.dgTempView = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -248,6 +251,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.btnTempUp);
             this.groupBox3.Controls.Add(this.btnTempDown);
             this.groupBox3.Controls.Add(this.btnSourceRemoveAll);
@@ -266,7 +272,7 @@
             this.groupBox3.Controls.Add(this.lbTempFields);
             this.groupBox3.Location = new System.Drawing.Point(214, 112);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(402, 623);
+            this.groupBox3.Size = new System.Drawing.Size(402, 645);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "数据列对应设置";
@@ -274,7 +280,7 @@
             // btnTempUp
             // 
             this.btnTempUp.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Sort_Up_20;
-            this.btnTempUp.Location = new System.Drawing.Point(357, 50);
+            this.btnTempUp.Location = new System.Drawing.Point(357, 36);
             this.btnTempUp.Name = "btnTempUp";
             this.btnTempUp.Size = new System.Drawing.Size(28, 28);
             this.btnTempUp.TabIndex = 6;
@@ -284,7 +290,7 @@
             // btnTempDown
             // 
             this.btnTempDown.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Sort_Down_20;
-            this.btnTempDown.Location = new System.Drawing.Point(357, 84);
+            this.btnTempDown.Location = new System.Drawing.Point(357, 70);
             this.btnTempDown.Name = "btnTempDown";
             this.btnTempDown.Size = new System.Drawing.Size(28, 28);
             this.btnTempDown.TabIndex = 6;
@@ -294,7 +300,7 @@
             // btnSourceRemoveAll
             // 
             this.btnSourceRemoveAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Down_20;
-            this.btnSourceRemoveAll.Location = new System.Drawing.Point(29, 307);
+            this.btnSourceRemoveAll.Location = new System.Drawing.Point(29, 325);
             this.btnSourceRemoveAll.Name = "btnSourceRemoveAll";
             this.btnSourceRemoveAll.Size = new System.Drawing.Size(39, 35);
             this.btnSourceRemoveAll.TabIndex = 5;
@@ -304,7 +310,7 @@
             // btnSourceAddAll
             // 
             this.btnSourceAddAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Up_20;
-            this.btnSourceAddAll.Location = new System.Drawing.Point(74, 307);
+            this.btnSourceAddAll.Location = new System.Drawing.Point(74, 325);
             this.btnSourceAddAll.Name = "btnSourceAddAll";
             this.btnSourceAddAll.Size = new System.Drawing.Size(39, 35);
             this.btnSourceAddAll.TabIndex = 5;
@@ -314,7 +320,7 @@
             // btnTempRemoveAll
             // 
             this.btnTempRemoveAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Down_20;
-            this.btnTempRemoveAll.Location = new System.Drawing.Point(233, 307);
+            this.btnTempRemoveAll.Location = new System.Drawing.Point(233, 325);
             this.btnTempRemoveAll.Name = "btnTempRemoveAll";
             this.btnTempRemoveAll.Size = new System.Drawing.Size(39, 35);
             this.btnTempRemoveAll.TabIndex = 5;
@@ -324,7 +330,7 @@
             // btnTempAddAll
             // 
             this.btnTempAddAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Up_20;
-            this.btnTempAddAll.Location = new System.Drawing.Point(278, 307);
+            this.btnTempAddAll.Location = new System.Drawing.Point(278, 325);
             this.btnTempAddAll.Name = "btnTempAddAll";
             this.btnTempAddAll.Size = new System.Drawing.Size(39, 35);
             this.btnTempAddAll.TabIndex = 5;
@@ -334,7 +340,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(156, 83);
+            this.label10.Location = new System.Drawing.Point(156, 101);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 12);
             this.label10.TabIndex = 4;
@@ -343,7 +349,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(156, 71);
+            this.label9.Location = new System.Drawing.Point(156, 89);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 12);
             this.label9.TabIndex = 4;
@@ -352,7 +358,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(156, 47);
+            this.label7.Location = new System.Drawing.Point(156, 65);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 12);
             this.label7.TabIndex = 4;
@@ -361,7 +367,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(156, 59);
+            this.label8.Location = new System.Drawing.Point(156, 77);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(47, 12);
             this.label8.TabIndex = 4;
@@ -370,7 +376,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(156, 35);
+            this.label6.Location = new System.Drawing.Point(156, 53);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 12);
             this.label6.TabIndex = 4;
@@ -379,7 +385,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(156, 23);
+            this.label5.Location = new System.Drawing.Point(156, 41);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 12);
             this.label5.TabIndex = 4;
@@ -389,7 +395,7 @@
             // 
             this.lbFileFields.FormattingEnabled = true;
             this.lbFileFields.ItemHeight = 12;
-            this.lbFileFields.Location = new System.Drawing.Point(7, 348);
+            this.lbFileFields.Location = new System.Drawing.Point(7, 366);
             this.lbFileFields.Name = "lbFileFields";
             this.lbFileFields.Size = new System.Drawing.Size(148, 268);
             this.lbFileFields.TabIndex = 3;
@@ -399,7 +405,7 @@
             // 
             this.lbFileSelected.FormattingEnabled = true;
             this.lbFileSelected.ItemHeight = 12;
-            this.lbFileSelected.Location = new System.Drawing.Point(7, 21);
+            this.lbFileSelected.Location = new System.Drawing.Point(7, 39);
             this.lbFileSelected.Name = "lbFileSelected";
             this.lbFileSelected.Size = new System.Drawing.Size(148, 280);
             this.lbFileSelected.TabIndex = 2;
@@ -410,7 +416,7 @@
             this.lbSelectedFields.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.lbSelectedFields.FormattingEnabled = true;
             this.lbSelectedFields.ItemHeight = 12;
-            this.lbSelectedFields.Location = new System.Drawing.Point(206, 21);
+            this.lbSelectedFields.Location = new System.Drawing.Point(206, 39);
             this.lbSelectedFields.Name = "lbSelectedFields";
             this.lbSelectedFields.Size = new System.Drawing.Size(145, 280);
             this.lbSelectedFields.TabIndex = 1;
@@ -421,7 +427,7 @@
             this.lbTempFields.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.lbTempFields.FormattingEnabled = true;
             this.lbTempFields.ItemHeight = 12;
-            this.lbTempFields.Location = new System.Drawing.Point(206, 348);
+            this.lbTempFields.Location = new System.Drawing.Point(206, 366);
             this.lbTempFields.Name = "lbTempFields";
             this.lbTempFields.Size = new System.Drawing.Size(145, 268);
             this.lbTempFields.TabIndex = 0;
@@ -437,7 +443,7 @@
             this.dgTempView.Name = "dgTempView";
             this.dgTempView.ReadOnly = true;
             this.dgTempView.RowTemplate.Height = 23;
-            this.dgTempView.Size = new System.Drawing.Size(895, 287);
+            this.dgTempView.Size = new System.Drawing.Size(895, 309);
             this.dgTempView.TabIndex = 19;
             // 
             // groupBox4
@@ -445,7 +451,7 @@
             this.groupBox4.Controls.Add(this.dgTempView);
             this.groupBox4.Location = new System.Drawing.Point(622, 428);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(901, 307);
+            this.groupBox4.Size = new System.Drawing.Size(901, 329);
             this.groupBox4.TabIndex = 20;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "模板数据展示";
@@ -461,11 +467,44 @@
             this.label11.TabIndex = 21;
             this.label11.Text = "数据列对应设置可以将拆分文件中的列数\r\n据生成到模板文件对应的列中。\r\n\r\n列配置一次即可下次打开会载入上次配置的数据。";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.ForeColor = System.Drawing.Color.Blue;
+            this.label12.Location = new System.Drawing.Point(35, 21);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(87, 15);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "文件列选择";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label13.ForeColor = System.Drawing.Color.Blue;
+            this.label13.Location = new System.Drawing.Point(230, 21);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(87, 15);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "模板列选择";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(171, 369);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(23, 150);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "双\r\n击\r\n单\r\n个\r\n列\r\n添\r\n加\r\n或\r\n移\r\n除";
+            // 
             // AddressSplit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1533, 745);
+            this.ClientSize = new System.Drawing.Size(1533, 795);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -542,6 +581,9 @@
         private System.Windows.Forms.DataGridView dgTempView;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
     }
 }
 
