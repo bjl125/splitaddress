@@ -48,6 +48,9 @@
             this.labprocess = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.btnTempUp = new System.Windows.Forms.Button();
             this.btnTempDown = new System.Windows.Forms.Button();
             this.btnSourceRemoveAll = new System.Windows.Forms.Button();
@@ -67,9 +70,12 @@
             this.dgTempView = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -106,7 +112,7 @@
             this.ckFields.FormattingEnabled = true;
             this.ckFields.Location = new System.Drawing.Point(6, 20);
             this.ckFields.Name = "ckFields";
-            this.ckFields.Size = new System.Drawing.Size(173, 596);
+            this.ckFields.Size = new System.Drawing.Size(173, 612);
             this.ckFields.TabIndex = 2;
             // 
             // dgView
@@ -156,7 +162,7 @@
             this.groupBox1.Controls.Add(this.ckFields);
             this.groupBox1.Location = new System.Drawing.Point(22, 112);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(186, 623);
+            this.groupBox1.Size = new System.Drawing.Size(186, 645);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "选择拆分列";
@@ -260,10 +266,16 @@
             this.groupBox3.Controls.Add(this.btnSourceAddAll);
             this.groupBox3.Controls.Add(this.btnTempRemoveAll);
             this.groupBox3.Controls.Add(this.btnTempAddAll);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.label19);
             this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.lbFileFields);
@@ -276,6 +288,39 @@
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "数据列对应设置";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(171, 369);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(23, 150);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "双\r\n击\r\n单\r\n个\r\n列\r\n添\r\n加\r\n或\r\n移\r\n除";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label13.ForeColor = System.Drawing.Color.Blue;
+            this.label13.Location = new System.Drawing.Point(230, 21);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(87, 15);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "模板列选择";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.ForeColor = System.Drawing.Color.Blue;
+            this.label12.Location = new System.Drawing.Point(35, 21);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(87, 15);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "文件列选择";
             // 
             // btnTempUp
             // 
@@ -407,6 +452,7 @@
             this.lbFileSelected.ItemHeight = 12;
             this.lbFileSelected.Location = new System.Drawing.Point(7, 39);
             this.lbFileSelected.Name = "lbFileSelected";
+            this.lbFileSelected.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lbFileSelected.Size = new System.Drawing.Size(148, 280);
             this.lbFileSelected.TabIndex = 2;
             this.lbFileSelected.DoubleClick += new System.EventHandler(this.lbFileSelected_DoubleClick);
@@ -467,38 +513,59 @@
             this.label11.TabIndex = 21;
             this.label11.Text = "数据列对应设置可以将拆分文件中的列数\r\n据生成到模板文件对应的列中。\r\n\r\n列配置一次即可下次打开会载入上次配置的数据。";
             // 
-            // label12
+            // label15
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.ForeColor = System.Drawing.Color.Blue;
-            this.label12.Location = new System.Drawing.Point(35, 21);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(87, 15);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "文件列选择";
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(156, 113);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(47, 12);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "-------";
             // 
-            // label13
+            // label16
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.ForeColor = System.Drawing.Color.Blue;
-            this.label13.Location = new System.Drawing.Point(230, 21);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(87, 15);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "模板列选择";
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(156, 125);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(47, 12);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "-------";
             // 
-            // label14
+            // label17
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(171, 369);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(23, 150);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "双\r\n击\r\n单\r\n个\r\n列\r\n添\r\n加\r\n或\r\n移\r\n除";
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(156, 149);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(47, 12);
+            this.label17.TabIndex = 4;
+            this.label17.Text = "-------";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(156, 137);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(47, 12);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "-------";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(156, 161);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(47, 12);
+            this.label19.TabIndex = 4;
+            this.label19.Text = "-------";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(156, 173);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(47, 12);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "-------";
             // 
             // AddressSplit
             // 
@@ -528,7 +595,7 @@
             this.MaximizeBox = false;
             this.Name = "AddressSplit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "义鑫邦物流Excel地址拆分";
+            this.Text = "义鑫邦物流Excel地址拆分 v2.0";
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -584,6 +651,12 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
     }
 }
 

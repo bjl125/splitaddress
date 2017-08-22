@@ -135,6 +135,11 @@ namespace AddressSplitForExcel
                         lbFileFields.Items.Remove(field);
                     }
                 }
+
+                //设置自动保存的文件路径
+                string savefilepath = ofd.FileName.Substring(0, ofd.FileName.LastIndexOf("\\") + 1) + ofd.SafeFileName.Substring(0, ofd.SafeFileName.LastIndexOf(".")) + "_模板数据_" + DateTime.Now.ToString("yyyyMMdd") + ".xlsx";
+
+                txtSavePath.Text = savefilepath;
                 btnSplit.Enabled = true;
             }
 
@@ -224,6 +229,8 @@ namespace AddressSplitForExcel
 
                         dgTempView.DataSource = tempDT;
 
+                        //自动保存
+                        AutoSaveExcel(txtSavePath.Text);
                         btnSave.Enabled = true;
                         //保存配置项
                         ConfigHelper.SaveConfigToFile(this.AppConfigInfo);
@@ -561,6 +568,18 @@ namespace AddressSplitForExcel
 
         }
 
+        private void AutoSaveExcel(string filepath)
+        {
+            if (!string.IsNullOrEmpty(filepath))
+            {
+                if (tempDT != null)
+                {
+                    ExcelHelper eh = new ExcelHelper(filepath);
+                    var r = eh.SaveTableToExcel(filepath, tempDT, "sheet1", true);
+                }
+            }
+        }
+
         private void txtSavePath_TextChanged(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(txtSavePath.Text))
@@ -676,6 +695,6 @@ namespace AddressSplitForExcel
         {
             MoveUpDownItems(lbSelectedFields, 0, sender);
         }
-        
+
     }
 }

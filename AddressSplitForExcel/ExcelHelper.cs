@@ -8,6 +8,7 @@ using System.Data;
 using NPOI.XSSF.UserModel;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
+using NPOI.CSS;
 
 
 namespace AddressSplitForExcel
@@ -54,7 +55,9 @@ namespace AddressSplitForExcel
                 IRow row = sheet.CreateRow(0);
                 for (j = 0; j < dt.Columns.Count; ++j)
                 {
-                    row.CreateCell(j).SetCellValue(dt.Columns[j].ColumnName);
+                    ICell cell = row.CreateCell(j);
+                    cell.CSS("border-type:thin;background-color:yellow;");
+                    cell.SetCellValue(dt.Columns[j].ColumnName);
                     count = 1;
                 }
             }
@@ -64,7 +67,9 @@ namespace AddressSplitForExcel
                 IRow row = sheet.CreateRow(count);
                 for (j = 0; j < dt.Columns.Count; ++j)
                 {
-                    row.CreateCell(j).SetCellValue(dt.Rows[i][j].ToString());
+                    ICell cell = row.CreateCell(j);
+                    cell.CSS("border-type:thin;");
+                    cell.SetCellValue(dt.Rows[i][j].ToString());
                 }
                 ++count;
             }
