@@ -24,6 +24,9 @@ namespace AddressSplitForExcel
                         prov.StartsWith("重庆"))
             {
                 city = prov.IndexOf("市", 0) > 0 ? prov : prov + "市";
+
+                //区拆分
+                region = GetRegion(otherAddr, out otherAddr, provs, citys, regions).AddrArea;
             }
             else
             {
@@ -64,7 +67,7 @@ namespace AddressSplitForExcel
                     region = add.Substring(0, add.IndexOf("市", 0) + 1);
                 }
                 else if (add.IndexOf("区", 0) > 0 && add.IndexOf("区", 0) < 5)
-                {                    
+                {
                     region = add.Substring(0, add.IndexOf("区", 0) + 1);
                     //排除小区
                     if (region.EndsWith("小区"))
@@ -78,15 +81,15 @@ namespace AddressSplitForExcel
                 {
                     region = add.Substring(0, add.IndexOf("县", 0) + 1);
                 }
-                
+
                 //为空重新查找
-                if(String.IsNullOrEmpty(region))
+                if (String.IsNullOrEmpty(region))
                 {
                     var addrregion = (from r in regions
                                       where add.StartsWith(r.AreaFirstName)
-                                      select r).FirstOrDefault() ;
-                    
-                    if(addrregion != null)
+                                      select r).FirstOrDefault();
+
+                    if (addrregion != null)
                     {
                         parentcode = addrregion.ParentCode;
                         region = addrregion.AreaFirstName;

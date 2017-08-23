@@ -32,7 +32,6 @@
             this.openFDialog = new System.Windows.Forms.OpenFileDialog();
             this.txtFilepath = new System.Windows.Forms.TextBox();
             this.btnOpen = new System.Windows.Forms.Button();
-            this.ckFields = new System.Windows.Forms.CheckedListBox();
             this.dgView = new System.Windows.Forms.DataGridView();
             this.listbox = new System.Windows.Forms.ListBox();
             this.btnSplit = new System.Windows.Forms.Button();
@@ -51,12 +50,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.btnTempUp = new System.Windows.Forms.Button();
-            this.btnTempDown = new System.Windows.Forms.Button();
-            this.btnSourceRemoveAll = new System.Windows.Forms.Button();
-            this.btnSourceAddAll = new System.Windows.Forms.Button();
-            this.btnTempRemoveAll = new System.Windows.Forms.Button();
-            this.btnTempAddAll = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -77,9 +70,16 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.发件人管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmSender = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbFields = new System.Windows.Forms.ListBox();
+            this.btnTempUp = new System.Windows.Forms.Button();
+            this.btnTempDown = new System.Windows.Forms.Button();
+            this.btnSourceRemoveAll = new System.Windows.Forms.Button();
+            this.btnSourceAddAll = new System.Windows.Forms.Button();
+            this.btnTempRemoveAll = new System.Windows.Forms.Button();
+            this.btnTempAddAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -110,15 +110,6 @@
             this.btnOpen.Text = "选择文件";
             this.btnOpen.UseVisualStyleBackColor = true;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
-            // 
-            // ckFields
-            // 
-            this.ckFields.CheckOnClick = true;
-            this.ckFields.FormattingEnabled = true;
-            this.ckFields.Location = new System.Drawing.Point(6, 20);
-            this.ckFields.Name = "ckFields";
-            this.ckFields.Size = new System.Drawing.Size(173, 612);
-            this.ckFields.TabIndex = 2;
             // 
             // dgView
             // 
@@ -164,7 +155,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.ckFields);
+            this.groupBox1.Controls.Add(this.lbFields);
             this.groupBox1.Location = new System.Drawing.Point(16, 125);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(186, 645);
@@ -326,66 +317,6 @@
             this.label12.Size = new System.Drawing.Size(87, 15);
             this.label12.TabIndex = 7;
             this.label12.Text = "文件列选择";
-            // 
-            // btnTempUp
-            // 
-            this.btnTempUp.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Sort_Up_20;
-            this.btnTempUp.Location = new System.Drawing.Point(357, 36);
-            this.btnTempUp.Name = "btnTempUp";
-            this.btnTempUp.Size = new System.Drawing.Size(28, 28);
-            this.btnTempUp.TabIndex = 6;
-            this.btnTempUp.UseVisualStyleBackColor = true;
-            this.btnTempUp.Click += new System.EventHandler(this.btnTempUp_Click);
-            // 
-            // btnTempDown
-            // 
-            this.btnTempDown.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Sort_Down_20;
-            this.btnTempDown.Location = new System.Drawing.Point(357, 70);
-            this.btnTempDown.Name = "btnTempDown";
-            this.btnTempDown.Size = new System.Drawing.Size(28, 28);
-            this.btnTempDown.TabIndex = 6;
-            this.btnTempDown.UseVisualStyleBackColor = true;
-            this.btnTempDown.Click += new System.EventHandler(this.btnTempDown_Click);
-            // 
-            // btnSourceRemoveAll
-            // 
-            this.btnSourceRemoveAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Down_20;
-            this.btnSourceRemoveAll.Location = new System.Drawing.Point(29, 325);
-            this.btnSourceRemoveAll.Name = "btnSourceRemoveAll";
-            this.btnSourceRemoveAll.Size = new System.Drawing.Size(39, 35);
-            this.btnSourceRemoveAll.TabIndex = 5;
-            this.btnSourceRemoveAll.UseVisualStyleBackColor = true;
-            this.btnSourceRemoveAll.Click += new System.EventHandler(this.btnSourceRemoveAll_Click);
-            // 
-            // btnSourceAddAll
-            // 
-            this.btnSourceAddAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Up_20;
-            this.btnSourceAddAll.Location = new System.Drawing.Point(74, 325);
-            this.btnSourceAddAll.Name = "btnSourceAddAll";
-            this.btnSourceAddAll.Size = new System.Drawing.Size(39, 35);
-            this.btnSourceAddAll.TabIndex = 5;
-            this.btnSourceAddAll.UseVisualStyleBackColor = true;
-            this.btnSourceAddAll.Click += new System.EventHandler(this.btnSourceAddAll_Click);
-            // 
-            // btnTempRemoveAll
-            // 
-            this.btnTempRemoveAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Down_20;
-            this.btnTempRemoveAll.Location = new System.Drawing.Point(233, 325);
-            this.btnTempRemoveAll.Name = "btnTempRemoveAll";
-            this.btnTempRemoveAll.Size = new System.Drawing.Size(39, 35);
-            this.btnTempRemoveAll.TabIndex = 5;
-            this.btnTempRemoveAll.UseVisualStyleBackColor = true;
-            this.btnTempRemoveAll.Click += new System.EventHandler(this.btnTempRemoveAll_Click);
-            // 
-            // btnTempAddAll
-            // 
-            this.btnTempAddAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Up_20;
-            this.btnTempAddAll.Location = new System.Drawing.Point(278, 325);
-            this.btnTempAddAll.Name = "btnTempAddAll";
-            this.btnTempAddAll.Size = new System.Drawing.Size(39, 35);
-            this.btnTempAddAll.TabIndex = 5;
-            this.btnTempAddAll.UseVisualStyleBackColor = true;
-            this.btnTempAddAll.Click += new System.EventHandler(this.btnTempAddAll_Click);
             // 
             // label20
             // 
@@ -576,7 +507,7 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.发件人管理ToolStripMenuItem,
+            this.tsmSender,
             this.帮助ToolStripMenuItem,
             this.关于AToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -585,11 +516,12 @@
             this.menuStrip1.TabIndex = 22;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // 发件人管理ToolStripMenuItem
+            // tsmSender
             // 
-            this.发件人管理ToolStripMenuItem.Name = "发件人管理ToolStripMenuItem";
-            this.发件人管理ToolStripMenuItem.Size = new System.Drawing.Size(95, 21);
-            this.发件人管理ToolStripMenuItem.Text = "发件人管理(&S)";
+            this.tsmSender.Name = "tsmSender";
+            this.tsmSender.Size = new System.Drawing.Size(95, 21);
+            this.tsmSender.Text = "发件人管理(&S)";
+            this.tsmSender.Click += new System.EventHandler(this.tsmSender_Click);
             // 
             // 帮助ToolStripMenuItem
             // 
@@ -603,11 +535,80 @@
             this.关于AToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
             this.关于AToolStripMenuItem.Text = "关于(&A)";
             // 
+            // lbFields
+            // 
+            this.lbFields.FormattingEnabled = true;
+            this.lbFields.ItemHeight = 12;
+            this.lbFields.Location = new System.Drawing.Point(7, 23);
+            this.lbFields.Name = "lbFields";
+            this.lbFields.Size = new System.Drawing.Size(173, 292);
+            this.lbFields.TabIndex = 3;
+            // 
+            // btnTempUp
+            // 
+            this.btnTempUp.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Sort_Up_20;
+            this.btnTempUp.Location = new System.Drawing.Point(357, 36);
+            this.btnTempUp.Name = "btnTempUp";
+            this.btnTempUp.Size = new System.Drawing.Size(28, 28);
+            this.btnTempUp.TabIndex = 6;
+            this.btnTempUp.UseVisualStyleBackColor = true;
+            this.btnTempUp.Click += new System.EventHandler(this.btnTempUp_Click);
+            // 
+            // btnTempDown
+            // 
+            this.btnTempDown.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Sort_Down_20;
+            this.btnTempDown.Location = new System.Drawing.Point(357, 70);
+            this.btnTempDown.Name = "btnTempDown";
+            this.btnTempDown.Size = new System.Drawing.Size(28, 28);
+            this.btnTempDown.TabIndex = 6;
+            this.btnTempDown.UseVisualStyleBackColor = true;
+            this.btnTempDown.Click += new System.EventHandler(this.btnTempDown_Click);
+            // 
+            // btnSourceRemoveAll
+            // 
+            this.btnSourceRemoveAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Down_20;
+            this.btnSourceRemoveAll.Location = new System.Drawing.Point(29, 325);
+            this.btnSourceRemoveAll.Name = "btnSourceRemoveAll";
+            this.btnSourceRemoveAll.Size = new System.Drawing.Size(39, 35);
+            this.btnSourceRemoveAll.TabIndex = 5;
+            this.btnSourceRemoveAll.UseVisualStyleBackColor = true;
+            this.btnSourceRemoveAll.Click += new System.EventHandler(this.btnSourceRemoveAll_Click);
+            // 
+            // btnSourceAddAll
+            // 
+            this.btnSourceAddAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Up_20;
+            this.btnSourceAddAll.Location = new System.Drawing.Point(74, 325);
+            this.btnSourceAddAll.Name = "btnSourceAddAll";
+            this.btnSourceAddAll.Size = new System.Drawing.Size(39, 35);
+            this.btnSourceAddAll.TabIndex = 5;
+            this.btnSourceAddAll.UseVisualStyleBackColor = true;
+            this.btnSourceAddAll.Click += new System.EventHandler(this.btnSourceAddAll_Click);
+            // 
+            // btnTempRemoveAll
+            // 
+            this.btnTempRemoveAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Down_20;
+            this.btnTempRemoveAll.Location = new System.Drawing.Point(233, 325);
+            this.btnTempRemoveAll.Name = "btnTempRemoveAll";
+            this.btnTempRemoveAll.Size = new System.Drawing.Size(39, 35);
+            this.btnTempRemoveAll.TabIndex = 5;
+            this.btnTempRemoveAll.UseVisualStyleBackColor = true;
+            this.btnTempRemoveAll.Click += new System.EventHandler(this.btnTempRemoveAll_Click);
+            // 
+            // btnTempAddAll
+            // 
+            this.btnTempAddAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Up_20;
+            this.btnTempAddAll.Location = new System.Drawing.Point(278, 325);
+            this.btnTempAddAll.Name = "btnTempAddAll";
+            this.btnTempAddAll.Size = new System.Drawing.Size(39, 35);
+            this.btnTempAddAll.TabIndex = 5;
+            this.btnTempAddAll.UseVisualStyleBackColor = true;
+            this.btnTempAddAll.Click += new System.EventHandler(this.btnTempAddAll_Click);
+            // 
             // AddressSplit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1533, 795);
+            this.ClientSize = new System.Drawing.Size(1533, 776);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -653,7 +654,6 @@
         private System.Windows.Forms.OpenFileDialog openFDialog;
         private System.Windows.Forms.TextBox txtFilepath;
         private System.Windows.Forms.Button btnOpen;
-        private System.Windows.Forms.CheckedListBox ckFields;
         private System.Windows.Forms.DataGridView dgView;
         private System.Windows.Forms.ListBox listbox;
         private System.Windows.Forms.Button btnSplit;
@@ -698,9 +698,10 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 发件人管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmSender;
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于AToolStripMenuItem;
+        private System.Windows.Forms.ListBox lbFields;
     }
 }
 

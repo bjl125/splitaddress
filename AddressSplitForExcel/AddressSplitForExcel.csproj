@@ -126,6 +126,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegionInfo.cs" />
+    <Compile Include="SenderManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SenderManagement.Designer.cs">
+      <DependentUpon>SenderManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="UIMask.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -149,6 +155,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="citys.json" />
+    <EmbeddedResource Include="SenderManagement.resx">
+      <DependentUpon>SenderManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UIMask.resx">
       <DependentUpon>UIMask.cs</DependentUpon>
     </EmbeddedResource>

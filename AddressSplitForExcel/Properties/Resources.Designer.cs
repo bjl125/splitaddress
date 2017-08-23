@@ -61,6 +61,16 @@ namespace AddressSplitForExcel.Properties {
         }
         
         /// <summary>
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Icon Excel_128px_1185986_easyicon_net {
+            get {
+                object obj = ResourceManager.GetObject("Excel_128px_1185986_easyicon_net", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap icons8_Double_Down_20 {
@@ -97,6 +107,16 @@ namespace AddressSplitForExcel.Properties {
             get {
                 object obj = ResourceManager.GetObject("icons8_Sort_Up_20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Icon location_128px_1200654_easyicon_net {
+            get {
+                object obj = ResourceManager.GetObject("location_128px_1200654_easyicon_net", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

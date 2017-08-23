@@ -102,8 +102,10 @@ namespace AddressSplitForExcel
                 ExcelHelper eh = new ExcelHelper(ofd.FileName);
 
                 List<string> listfields = eh.GetSheetFields("");
-                ckFields.Items.Clear();
-                ckFields.Items.AddRange(listfields.ToArray());
+                lbFields.Items.Clear();
+                lbFields.Items.AddRange(listfields.ToArray());
+                //ckFields.Items.Clear();
+                //ckFields.Items.AddRange(listfields.ToArray());
 
                 //设置可选择列
                 lbFileFields.Items.Clear();
@@ -148,14 +150,14 @@ namespace AddressSplitForExcel
         private void btnProcess_Click(object sender, EventArgs e)
         {
             List<string> fields = new List<string>();
-            for (int i = 0; i < ckFields.Items.Count; i++)
-            {
-                if (ckFields.GetItemChecked(i))
-                {
-                    fields.Add(ckFields.Items[i].ToString());
-                    MessageBox.Show(ckFields.Items[i].ToString());
-                }
-            }
+            //for (int i = 0; i < ckFields.Items.Count; i++)
+            //{
+            //    if (ckFields.GetItemChecked(i))
+            //    {
+            //        fields.Add(ckFields.Items[i].ToString());
+            //        MessageBox.Show(ckFields.Items[i].ToString());
+            //    }
+            //}
 
             MessageBox.Show(fields.Count.ToString());
         }
@@ -164,14 +166,16 @@ namespace AddressSplitForExcel
         {
 
             List<string> fields = new List<string>();
-            for (int i = 0; i < ckFields.Items.Count; i++)
-            {
-                if (ckFields.GetItemChecked(i))
-                {
-                    fields.Add(ckFields.Items[i].ToString());
-                    //MessageBox.Show(ckFields.Items[i].ToString());
-                }
-            }
+            //for (int i = 0; i < ckFields.Items.Count; i++)
+            //{
+            //    if (ckFields.GetItemChecked(i))
+            //    {
+            //        fields.Add(ckFields.Items[i].ToString());
+            //        //MessageBox.Show(ckFields.Items[i].ToString());
+            //    }
+            //}
+
+            fields.Add(lbFields.SelectedItem.ToString());
             return fields;
         }
         private void btnSplit_Click(object sender, EventArgs e)
@@ -694,6 +698,28 @@ namespace AddressSplitForExcel
         private void btnTempDown_Click(object sender, EventArgs e)
         {
             MoveUpDownItems(lbSelectedFields, 0, sender);
+        }
+
+        private void ckFields_Click(object sender, EventArgs e)
+        {
+            //int selectindex = ckFields.SelectedIndex ;
+            //for (int i = 0; i < ckFields.Items.Count; i++)
+            //{
+            //    if (ckFields.GetSelected(i))
+            //    {
+            //        selectindex = i;
+            //    }
+            //       // ckFields.SetSelected(i, true);
+            //    //if(ckFields.SetSelected(2,true))
+            //}
+            //ckFields.ClearSelected();
+            //ckFields.SetItemChecked(selectindex, true);
+        }
+
+        private void tsmSender_Click(object sender, EventArgs e)
+        {
+            SenderManagement sm = new SenderManagement();
+            sm.ShowDialog();
         }
     }
 }
