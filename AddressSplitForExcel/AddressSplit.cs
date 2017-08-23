@@ -137,7 +137,7 @@ namespace AddressSplitForExcel
                 }
 
                 //设置自动保存的文件路径
-                string savefilepath = ofd.FileName.Substring(0, ofd.FileName.LastIndexOf("\\") + 1) + ofd.SafeFileName.Substring(0, ofd.SafeFileName.LastIndexOf(".")) + "_模板数据_" + DateTime.Now.ToString("yyyyMMdd") + ".xlsx";
+                string savefilepath = ofd.FileName.Substring(0, ofd.FileName.LastIndexOf("\\") + 1) + ofd.SafeFileName.Substring(0, ofd.SafeFileName.LastIndexOf(".")) + "_模板数据_" + DateTime.Now.ToString("yyyyMMdd") + ".xls";
 
                 txtSavePath.Text = savefilepath;
                 btnSplit.Enabled = true;

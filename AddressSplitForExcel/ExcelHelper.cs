@@ -32,7 +32,7 @@ namespace AddressSplitForExcel
             {
 
                 fs = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-                IWorkbook wb = GetWorkbookFromTable(dt, sheetname, isFirstRow);
+                IWorkbook wb = GetWorkbookFromTable(ExcelTypes.Excel03, dt, sheetname, isFirstRow);
                 wb.Write(fs);
                 return true;
             }
@@ -42,12 +42,20 @@ namespace AddressSplitForExcel
                 throw;
             }
         }
-        public XSSFWorkbook GetWorkbookFromTable(DataTable dt, string sheetName, bool isFirstRow)
+        public IWorkbook GetWorkbookFromTable(ExcelTypes exceltype, DataTable dt, string sheetName, bool isFirstRow)
         {
             int i = 0;
             int j = 0;
             int count = 0;
-            XSSFWorkbook wb = new XSSFWorkbook();
+            IWorkbook wb = null;
+            if (exceltype == ExcelTypes.Excel03)
+            {
+                wb = new HSSFWorkbook();
+            }
+            else if (exceltype == ExcelTypes.Excel07)
+            {
+                wb = new XSSFWorkbook();
+            }
             ISheet sheet = wb.CreateSheet(sheetName);
 
             if (isFirstRow)

@@ -115,6 +115,7 @@
     <Compile Include="AppConfig.cs" />
     <Compile Include="AreaInfo.cs" />
     <Compile Include="ConfigHelper.cs" />
+    <Compile Include="EnumTypes.cs" />
     <Compile Include="ExcelHelper.cs" />
     <Compile Include="PMT.cs">
       <SubType>Form</SubType>
