@@ -57,10 +57,16 @@
             this.btnSourceAddAll = new System.Windows.Forms.Button();
             this.btnTempRemoveAll = new System.Windows.Forms.Button();
             this.btnTempAddAll = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lbFileFields = new System.Windows.Forms.ListBox();
@@ -70,18 +76,17 @@
             this.dgTempView = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.发件人管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.关于AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTempView)).BeginInit();
             this.groupBox4.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFDialog
@@ -91,14 +96,14 @@
             // 
             // txtFilepath
             // 
-            this.txtFilepath.Location = new System.Drawing.Point(85, 19);
+            this.txtFilepath.Location = new System.Drawing.Point(79, 32);
             this.txtFilepath.Name = "txtFilepath";
             this.txtFilepath.Size = new System.Drawing.Size(490, 21);
             this.txtFilepath.TabIndex = 0;
             // 
             // btnOpen
             // 
-            this.btnOpen.Location = new System.Drawing.Point(581, 18);
+            this.btnOpen.Location = new System.Drawing.Point(575, 31);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(75, 23);
             this.btnOpen.TabIndex = 1;
@@ -132,7 +137,7 @@
             // 
             this.listbox.FormattingEnabled = true;
             this.listbox.ItemHeight = 12;
-            this.listbox.Location = new System.Drawing.Point(1246, 135);
+            this.listbox.Location = new System.Drawing.Point(1240, 148);
             this.listbox.Name = "listbox";
             this.listbox.Size = new System.Drawing.Size(212, 148);
             this.listbox.TabIndex = 5;
@@ -140,7 +145,7 @@
             // btnSplit
             // 
             this.btnSplit.Enabled = false;
-            this.btnSplit.Location = new System.Drawing.Point(671, 18);
+            this.btnSplit.Location = new System.Drawing.Point(665, 31);
             this.btnSplit.Name = "btnSplit";
             this.btnSplit.Size = new System.Drawing.Size(104, 23);
             this.btnSplit.TabIndex = 6;
@@ -151,7 +156,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 23);
+            this.label1.Location = new System.Drawing.Point(14, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 12);
             this.label1.TabIndex = 9;
@@ -160,7 +165,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.ckFields);
-            this.groupBox1.Location = new System.Drawing.Point(22, 112);
+            this.groupBox1.Location = new System.Drawing.Point(16, 125);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(186, 645);
             this.groupBox1.TabIndex = 10;
@@ -170,7 +175,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 53);
+            this.label2.Location = new System.Drawing.Point(14, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 9;
@@ -179,7 +184,7 @@
             // btnSave
             // 
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(581, 48);
+            this.btnSave.Location = new System.Drawing.Point(575, 61);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 11;
@@ -190,7 +195,7 @@
             // btnOpenPath
             // 
             this.btnOpenPath.Enabled = false;
-            this.btnOpenPath.Location = new System.Drawing.Point(671, 48);
+            this.btnOpenPath.Location = new System.Drawing.Point(665, 61);
             this.btnOpenPath.Name = "btnOpenPath";
             this.btnOpenPath.Size = new System.Drawing.Size(104, 23);
             this.btnOpenPath.TabIndex = 12;
@@ -200,7 +205,7 @@
             // 
             // txtSavePath
             // 
-            this.txtSavePath.Location = new System.Drawing.Point(85, 49);
+            this.txtSavePath.Location = new System.Drawing.Point(79, 62);
             this.txtSavePath.Name = "txtSavePath";
             this.txtSavePath.ReadOnly = true;
             this.txtSavePath.Size = new System.Drawing.Size(490, 21);
@@ -210,7 +215,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgView);
-            this.groupBox2.Location = new System.Drawing.Point(622, 112);
+            this.groupBox2.Location = new System.Drawing.Point(616, 125);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(901, 309);
             this.groupBox2.TabIndex = 14;
@@ -220,7 +225,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(792, 19);
+            this.label3.Location = new System.Drawing.Point(786, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(281, 72);
             this.label3.TabIndex = 15;
@@ -229,7 +234,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(85, 78);
+            this.progressBar1.Location = new System.Drawing.Point(79, 91);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(490, 23);
             this.progressBar1.TabIndex = 5;
@@ -239,7 +244,7 @@
             this.labprocess.AutoSize = true;
             this.labprocess.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labprocess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.labprocess.Location = new System.Drawing.Point(581, 83);
+            this.labprocess.Location = new System.Drawing.Point(575, 96);
             this.labprocess.Name = "labprocess";
             this.labprocess.Size = new System.Drawing.Size(19, 12);
             this.labprocess.TabIndex = 16;
@@ -249,7 +254,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 83);
+            this.label4.Location = new System.Drawing.Point(14, 96);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 9;
@@ -282,7 +287,7 @@
             this.groupBox3.Controls.Add(this.lbFileSelected);
             this.groupBox3.Controls.Add(this.lbSelectedFields);
             this.groupBox3.Controls.Add(this.lbTempFields);
-            this.groupBox3.Location = new System.Drawing.Point(214, 112);
+            this.groupBox3.Location = new System.Drawing.Point(208, 125);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(402, 645);
             this.groupBox3.TabIndex = 17;
@@ -382,6 +387,24 @@
             this.btnTempAddAll.UseVisualStyleBackColor = true;
             this.btnTempAddAll.Click += new System.EventHandler(this.btnTempAddAll_Click);
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(156, 173);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(47, 12);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "-------";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(156, 161);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(47, 12);
+            this.label19.TabIndex = 4;
+            this.label19.Text = "-------";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -390,6 +413,15 @@
             this.label10.Size = new System.Drawing.Size(47, 12);
             this.label10.TabIndex = 4;
             this.label10.Text = "-------";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(156, 137);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(47, 12);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "-------";
             // 
             // label9
             // 
@@ -400,6 +432,15 @@
             this.label9.TabIndex = 4;
             this.label9.Text = "-------";
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(156, 149);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(47, 12);
+            this.label17.TabIndex = 4;
+            this.label17.Text = "-------";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -409,6 +450,15 @@
             this.label7.TabIndex = 4;
             this.label7.Text = "-------";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(156, 125);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(47, 12);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "-------";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -417,6 +467,15 @@
             this.label8.Size = new System.Drawing.Size(47, 12);
             this.label8.TabIndex = 4;
             this.label8.Text = "-------";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(156, 113);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(47, 12);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "-------";
             // 
             // label6
             // 
@@ -495,7 +554,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dgTempView);
-            this.groupBox4.Location = new System.Drawing.Point(622, 428);
+            this.groupBox4.Location = new System.Drawing.Point(616, 441);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(901, 329);
             this.groupBox4.TabIndex = 20;
@@ -507,65 +566,42 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(1129, 23);
+            this.label11.Location = new System.Drawing.Point(1123, 36);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(382, 64);
             this.label11.TabIndex = 21;
             this.label11.Text = "数据列对应设置可以将拆分文件中的列数\r\n据生成到模板文件对应的列中。\r\n\r\n列配置一次即可下次打开会载入上次配置的数据。";
             // 
-            // label15
+            // menuStrip1
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(156, 113);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(47, 12);
-            this.label15.TabIndex = 4;
-            this.label15.Text = "-------";
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.发件人管理ToolStripMenuItem,
+            this.帮助ToolStripMenuItem,
+            this.关于AToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1533, 25);
+            this.menuStrip1.TabIndex = 22;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // label16
+            // 发件人管理ToolStripMenuItem
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(156, 125);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(47, 12);
-            this.label16.TabIndex = 4;
-            this.label16.Text = "-------";
+            this.发件人管理ToolStripMenuItem.Name = "发件人管理ToolStripMenuItem";
+            this.发件人管理ToolStripMenuItem.Size = new System.Drawing.Size(95, 21);
+            this.发件人管理ToolStripMenuItem.Text = "发件人管理(&S)";
             // 
-            // label17
+            // 帮助ToolStripMenuItem
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(156, 149);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(47, 12);
-            this.label17.TabIndex = 4;
-            this.label17.Text = "-------";
+            this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
+            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(61, 21);
+            this.帮助ToolStripMenuItem.Text = "帮助(&H)";
             // 
-            // label18
+            // 关于AToolStripMenuItem
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(156, 137);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(47, 12);
-            this.label18.TabIndex = 4;
-            this.label18.Text = "-------";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(156, 161);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(47, 12);
-            this.label19.TabIndex = 4;
-            this.label19.Text = "-------";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(156, 173);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(47, 12);
-            this.label20.TabIndex = 4;
-            this.label20.Text = "-------";
+            this.关于AToolStripMenuItem.Name = "关于AToolStripMenuItem";
+            this.关于AToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
+            this.关于AToolStripMenuItem.Text = "关于(&A)";
             // 
             // AddressSplit
             // 
@@ -590,8 +626,10 @@
             this.Controls.Add(this.listbox);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.txtFilepath);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "AddressSplit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -603,6 +641,8 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTempView)).EndInit();
             this.groupBox4.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -657,6 +697,10 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 发件人管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 关于AToolStripMenuItem;
     }
 }
 

@@ -695,6 +695,5 @@ namespace AddressSplitForExcel
         {
             MoveUpDownItems(lbSelectedFields, 0, sender);
         }
-
     }
 }
