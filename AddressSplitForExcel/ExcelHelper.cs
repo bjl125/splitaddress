@@ -26,7 +26,7 @@ namespace AddressSplitForExcel
             this.fileName = fileName;
             disposed = false;
         }
-        public bool SaveTableToExcel(string filename,DataTable dt,string sheetname,bool isFirstRow)
+        public bool SaveTableToExcel(string filename, DataTable dt, string sheetname, bool isFirstRow)
         {
             try
             {
@@ -42,7 +42,7 @@ namespace AddressSplitForExcel
                 throw;
             }
         }
-        public XSSFWorkbook GetWorkbookFromTable(DataTable dt,string sheetName,bool isFirstRow)
+        public XSSFWorkbook GetWorkbookFromTable(DataTable dt, string sheetName, bool isFirstRow)
         {
             int i = 0;
             int j = 0;
@@ -82,7 +82,7 @@ namespace AddressSplitForExcel
             ISheet sheet = null;
             DataTable data = new DataTable();
             List<string> list = new List<string>();
-            
+
             try
             {
                 fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
@@ -115,7 +115,7 @@ namespace AddressSplitForExcel
                         if (cell != null)
                         {
                             string cellValue = cell.StringCellValue;
-                            if (cellValue != null)
+                            if (!String.IsNullOrWhiteSpace(cellValue))
                             {
                                 list.Add(cellValue);
                             }
@@ -169,7 +169,7 @@ namespace AddressSplitForExcel
                             if (cell != null)
                             {
                                 string cellValue = cell.StringCellValue;
-                                if (cellValue != null)
+                                if (!String.IsNullOrWhiteSpace(cellValue))
                                 {
                                     DataColumn column = new DataColumn(cellValue);
                                     data.Columns.Add(column);
@@ -177,6 +177,8 @@ namespace AddressSplitForExcel
 
                             }
                         }
+                        //不包含表头为空的列
+                        cellCount = data.Columns.Count;
                         startrow = sheet.FirstRowNum + 1;
                     }
                     else
@@ -207,7 +209,7 @@ namespace AddressSplitForExcel
                 }
                 return data;
             }
-            catch
+            catch (Exception ex)
             {
                 return null;
             }
