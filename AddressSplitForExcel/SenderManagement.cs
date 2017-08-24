@@ -18,10 +18,10 @@ namespace AddressSplitForExcel
             InitializeComponent();
             try
             {
-                var dbe = new SQLiteDbContext();
+                //var dbe = new SQLiteDbContext();
 
 
-                using (var db = new SQLiteContext())
+                using (var db = new SQLiteContext(SQLiteConfig.SQLiteConnection()))
                 {
                     var senders = db.SenderAddressInfo.Where(s => s.ID == 1);
                 }

@@ -144,6 +144,7 @@
     <Compile Include="Entity\SenderAddressInfo.cs">
       <DependentUpon>SQLiteEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\SQLiteConfig.cs" />
     <Compile Include="Entity\SQLiteContext.cs" />
     <Compile Include="Entity\SQLiteEntities.Context.cs">
       <AutoGen>True</AutoGen>
@@ -208,6 +209,7 @@
     </EmbeddedResource>
     <None Include="AddressSplitForExcel_TemporaryKey.pfx" />
     <None Include="config.json" />
+    <None Include="configdata.db" />
     <None Include="Data\configdata.db" />
     <EntityDeploy Include="Entity\SQLiteEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
