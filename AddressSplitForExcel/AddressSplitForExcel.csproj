@@ -141,28 +141,31 @@
     <Compile Include="AppConfig.cs" />
     <Compile Include="AreaInfo.cs" />
     <Compile Include="ConfigHelper.cs" />
+    <Compile Include="DataManager.cs" />
+    <Compile Include="Entity\SenderInfo.cs" />
     <Compile Include="Entity\SenderAddressInfo.cs">
-      <DependentUpon>SQLiteEntities.tt</DependentUpon>
+      <DependentUpon>SqliteDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\SQLiteConfig.cs" />
     <Compile Include="Entity\SQLiteContext.cs" />
-    <Compile Include="Entity\SQLiteEntities.Context.cs">
+    <Compile Include="Entity\SqliteDbContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SQLiteEntities.Context.tt</DependentUpon>
+      <DependentUpon>SqliteDbContext.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\SQLiteEntities.cs">
+    <Compile Include="Entity\SqliteDbContext.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SQLiteEntities.tt</DependentUpon>
+      <DependentUpon>SqliteDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\SQLiteEntities.Designer.cs">
+    <Compile Include="Entity\SqliteDbContext.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SQLiteEntities.edmx</DependentUpon>
+      <DependentUpon>SqliteDbContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="EnumTypes.cs" />
     <Compile Include="ExcelHelper.cs" />
+    <Compile Include="Extension\ListExtension.cs" />
     <Compile Include="PMT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,12 +214,12 @@
     <None Include="config.json" />
     <None Include="configdata.db" />
     <None Include="Data\configdata.db" />
-    <EntityDeploy Include="Entity\SQLiteEntities.edmx">
+    <EntityDeploy Include="Entity\SqliteDbContext.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SQLiteEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>SqliteDbContext.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Entity\SQLiteEntities.edmx.diagram">
-      <DependentUpon>SQLiteEntities.edmx</DependentUpon>
+    <None Include="Entity\SqliteDbContext.edmx.diagram">
+      <DependentUpon>SqliteDbContext.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -228,20 +231,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="sender.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Entity\SQLiteEntities.Context.tt">
+    <Content Include="Entity\SqliteDbContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SQLiteEntities.edmx</DependentUpon>
-      <LastGenOutput>SQLiteEntities.Context.cs</LastGenOutput>
+      <DependentUpon>SqliteDbContext.edmx</DependentUpon>
+      <LastGenOutput>SqliteDbContext.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Entity\SQLiteEntities.tt">
+    <Content Include="Entity\SqliteDbContext.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SQLiteEntities.edmx</DependentUpon>
-      <LastGenOutput>SQLiteEntities.cs</LastGenOutput>
+      <DependentUpon>SqliteDbContext.edmx</DependentUpon>
+      <LastGenOutput>SqliteDbContext.cs</LastGenOutput>
     </Content>
     <Content Include="Excel_128px_1185986_easyicon.net.ico" />
     <Content Include="Lib\NPOI.CSS.dll" />
@@ -272,7 +276,8 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>copy $(ProjectDir)config.json $(ProjectDir)$(OutDir)config.json</PostBuildEvent>
+    <PostBuildEvent>copy $(ProjectDir)config.json $(ProjectDir)$(OutDir)config.json
+copy $(ProjectDir)sender.json $(ProjectDir)$(OutDir)sender.json</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.2\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.2\build\net45\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

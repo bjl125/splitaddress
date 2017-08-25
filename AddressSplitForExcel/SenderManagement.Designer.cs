@@ -29,44 +29,59 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SenderManagement));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgSenders = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSender = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtMobile = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtProvience = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtCity = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtRegion = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnDel = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnDel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtRegion = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtCity = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtProvience = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtMobile = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSender = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Sender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Provience = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Region = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSenders)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgSenders
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 17);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(653, 230);
-            this.dataGridView1.TabIndex = 0;
+            this.dgSenders.AllowUserToAddRows = false;
+            this.dgSenders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSenders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Sender,
+            this.Mobile,
+            this.Provience,
+            this.City,
+            this.Region,
+            this.Address});
+            this.dgSenders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgSenders.Location = new System.Drawing.Point(3, 17);
+            this.dgSenders.Name = "dgSenders";
+            this.dgSenders.ReadOnly = true;
+            this.dgSenders.Size = new System.Drawing.Size(653, 230);
+            this.dgSenders.TabIndex = 0;
+            this.dgSenders.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSenders_CellDoubleClick);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dgSenders);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(659, 250);
@@ -98,110 +113,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "数据编辑";
             // 
-            // label1
+            // btnQuit
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "发件人：";
-            // 
-            // txtSender
-            // 
-            this.txtSender.Location = new System.Drawing.Point(80, 18);
-            this.txtSender.Name = "txtSender";
-            this.txtSender.Size = new System.Drawing.Size(288, 21);
-            this.txtSender.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(384, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 12);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "发件人手机：";
-            // 
-            // txtMobile
-            // 
-            this.txtMobile.Location = new System.Drawing.Point(467, 18);
-            this.txtMobile.Name = "txtMobile";
-            this.txtMobile.Size = new System.Drawing.Size(189, 21);
-            this.txtMobile.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 49);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "省：";
-            // 
-            // txtProvience
-            // 
-            this.txtProvience.Location = new System.Drawing.Point(80, 45);
-            this.txtProvience.Name = "txtProvience";
-            this.txtProvience.Size = new System.Drawing.Size(157, 21);
-            this.txtProvience.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(243, 49);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 12);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "市：";
-            // 
-            // txtCity
-            // 
-            this.txtCity.Location = new System.Drawing.Point(278, 45);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(137, 21);
-            this.txtCity.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 75);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 12);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "详细地址：";
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Location = new System.Drawing.Point(80, 72);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(576, 21);
-            this.txtAddress.TabIndex = 1;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(421, 49);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 12);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "区/县：";
-            // 
-            // txtRegion
-            // 
-            this.txtRegion.Location = new System.Drawing.Point(467, 45);
-            this.txtRegion.Name = "txtRegion";
-            this.txtRegion.Size = new System.Drawing.Size(189, 21);
-            this.txtRegion.TabIndex = 1;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(80, 103);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "保存";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnQuit.Location = new System.Drawing.Point(278, 103);
+            this.btnQuit.Name = "btnQuit";
+            this.btnQuit.Size = new System.Drawing.Size(75, 23);
+            this.btnQuit.TabIndex = 4;
+            this.btnQuit.Text = "退出";
+            this.btnQuit.UseVisualStyleBackColor = true;
+            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
             // btnDel
             // 
@@ -212,14 +132,159 @@
             this.btnDel.Text = "删除";
             this.btnDel.UseVisualStyleBackColor = true;
             // 
-            // btnQuit
+            // btnSave
             // 
-            this.btnQuit.Location = new System.Drawing.Point(278, 103);
-            this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(75, 23);
-            this.btnQuit.TabIndex = 4;
-            this.btnQuit.Text = "退出";
-            this.btnQuit.UseVisualStyleBackColor = true;
+            this.btnSave.Location = new System.Drawing.Point(80, 103);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 2;
+            this.btnSave.Text = "保存";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(80, 72);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(576, 21);
+            this.txtAddress.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 75);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "详细地址：";
+            // 
+            // txtRegion
+            // 
+            this.txtRegion.Location = new System.Drawing.Point(467, 45);
+            this.txtRegion.Name = "txtRegion";
+            this.txtRegion.Size = new System.Drawing.Size(189, 21);
+            this.txtRegion.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(421, 49);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 12);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "区/县：";
+            // 
+            // txtCity
+            // 
+            this.txtCity.Location = new System.Drawing.Point(278, 45);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(137, 21);
+            this.txtCity.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(243, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 12);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "市：";
+            // 
+            // txtProvience
+            // 
+            this.txtProvience.Location = new System.Drawing.Point(80, 45);
+            this.txtProvience.Name = "txtProvience";
+            this.txtProvience.Size = new System.Drawing.Size(157, 21);
+            this.txtProvience.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(45, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "省：";
+            // 
+            // txtMobile
+            // 
+            this.txtMobile.Location = new System.Drawing.Point(467, 18);
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.Size = new System.Drawing.Size(189, 21);
+            this.txtMobile.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(384, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 12);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "发件人手机：";
+            // 
+            // txtSender
+            // 
+            this.txtSender.Location = new System.Drawing.Point(80, 18);
+            this.txtSender.Name = "txtSender";
+            this.txtSender.Size = new System.Drawing.Size(288, 21);
+            this.txtSender.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "发件人：";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Sender
+            // 
+            this.Sender.DataPropertyName = "Sender";
+            this.Sender.HeaderText = "发件人";
+            this.Sender.Name = "Sender";
+            this.Sender.ReadOnly = true;
+            // 
+            // Mobile
+            // 
+            this.Mobile.DataPropertyName = "Mobile";
+            this.Mobile.HeaderText = "发件人电话";
+            this.Mobile.Name = "Mobile";
+            this.Mobile.ReadOnly = true;
+            // 
+            // Provience
+            // 
+            this.Provience.DataPropertyName = "Provience";
+            this.Provience.HeaderText = "省";
+            this.Provience.Name = "Provience";
+            this.Provience.ReadOnly = true;
+            // 
+            // City
+            // 
+            this.City.DataPropertyName = "City";
+            this.City.HeaderText = "市";
+            this.City.Name = "City";
+            this.City.ReadOnly = true;
+            // 
+            // Region
+            // 
+            this.Region.DataPropertyName = "Region";
+            this.Region.HeaderText = "区";
+            this.Region.Name = "Region";
+            this.Region.ReadOnly = true;
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "详细地址";
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
             // 
             // SenderManagement
             // 
@@ -233,7 +298,7 @@
             this.Name = "SenderManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "发件人管理";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSenders)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -243,7 +308,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgSenders;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtAddress;
@@ -261,5 +326,12 @@
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnQuit;
+        private System.Windows.Forms.DataGridViewLinkColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mobile;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Provience;
+        private System.Windows.Forms.DataGridViewTextBoxColumn City;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Region;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
     }
 }

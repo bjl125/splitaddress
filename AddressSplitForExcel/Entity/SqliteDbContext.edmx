@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SQLiteModels.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=D:\MyProject\splitaddress\AddressSplitForExcel\configdata.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="configdataModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=D:\MyProject\splitaddress\AddressSplitForExcel\configdata.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="SenderAddressInfo">
           <Key>
             <PropertyRef Name="ID" />
@@ -17,14 +17,14 @@
           <Property Name="Region" Type="nvarchar" MaxLength="50" />
           <Property Name="Address" Type="nvarchar" MaxLength="200" />
         </EntityType>
-        <EntityContainer Name="SQLiteModelsStoreContainer">
+        <EntityContainer Name="configdataModelStoreContainer">
           <EntitySet Name="SenderAddressInfo" EntityType="Self.SenderAddressInfo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SQLiteModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="configdataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="SenderAddressInfo">
           <Key>
             <PropertyRef Name="ID" />
@@ -37,7 +37,7 @@
           <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="SQLiteDbContext" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SQLiteContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="SenderAddressInfoes" EntityType="Self.SenderAddressInfo" />
         </EntityContainer>
       </Schema>
@@ -45,9 +45,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SQLiteModelsStoreContainer" CdmEntityContainer="SQLiteDbContext">
+        <EntityContainerMapping StorageEntityContainer="configdataModelStoreContainer" CdmEntityContainer="SQLiteContext">
           <EntitySetMapping Name="SenderAddressInfoes">
-            <EntityTypeMapping TypeName="SQLiteModels.SenderAddressInfo">
+            <EntityTypeMapping TypeName="configdataModel.SenderAddressInfo">
               <MappingFragment StoreEntitySet="SenderAddressInfo">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Sender" ColumnName="Sender" />

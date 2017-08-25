@@ -27,6 +27,14 @@ namespace AddressSplitForExcel
             return configStr;
         }
 
+        public static string GetLocalSenderJson()
+        {
+
+            string fullfilename = Application.StartupPath + "\\sender.json";
+            string configStr = GetJsonStringFromFile(fullfilename);
+            return configStr;
+        }
+
         public static void SaveJsonStringToFile(string filename, string json)
         {
             StreamWriter sw = new StreamWriter(filename, false);
@@ -35,6 +43,12 @@ namespace AddressSplitForExcel
 
         }
 
+        public static void SaveSenderJsonStringToLocal(string json)
+        {
+            string filename = Application.StartupPath + "\\sender.json";
+            SaveJsonStringToFile(filename, json);
+
+        }
         public static void SaveJsonStringToLocal(string json)
         {
             string filename = Application.StartupPath + "\\config.json";

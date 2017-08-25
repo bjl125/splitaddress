@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="100264908056429c9a6367e33fdd740c" Name="Diagram1">
-        <EntityTypeShape EntityType="SQLiteModels.SenderAddressInfo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="5c1f768b40cf45d7a4d6f6bf235d1c9c" Name="Diagram1">
+        <EntityTypeShape EntityType="configdataModel.SenderAddressInfo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

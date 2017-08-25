@@ -3,3 +3,6 @@
 ################################################################################
 
 /AddressSplitForExcel/obj/Debug
+/AddressSplit.UnitTest/obj/Debug
+/AddressSplit.UnitTest/bin/Debug
+/AddressSplitForExcel/bin/Debug

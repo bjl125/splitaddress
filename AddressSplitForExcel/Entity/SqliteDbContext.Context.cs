@@ -13,10 +13,10 @@ namespace AddressSplitForExcel.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SQLiteDbContext : DbContext
+    public partial class SQLiteContext : DbContext
     {
-        public SQLiteDbContext()
-            : base("name=SQLiteDbContext")
+        public SQLiteContext()
+            : base("name=SQLiteContext")
         {
         }
     

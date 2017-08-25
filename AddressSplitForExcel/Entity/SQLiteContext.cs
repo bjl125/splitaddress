@@ -13,13 +13,13 @@ using System.Data;
 
 namespace AddressSplitForExcel.Entity
 {
-    public class SQLiteContext : DbContext
+    public class SQLiteContexts : DbContext
     {
-        public SQLiteContext(string conStr = "configdb") : base(conStr)
+        public SQLiteContexts(string conStr = "configdb") : base(conStr)
         {
 
         }
-        public SQLiteContext(SQLiteConnection conn) : base(conn, true)
+        public SQLiteContexts(SQLiteConnection conn) : base(conn, true)
         {
 
         }
