@@ -15,15 +15,19 @@ namespace AddressSplitForExcel.Entity
 {
     public class SQLiteContext : DbContext
     {
-        public SQLiteContext(string conStr="configdb") : base(conStr)
+        public SQLiteContext(string conStr = "configdb") : base(conStr)
+        {
+
+        }
+        public SQLiteContext(SQLiteConnection conn) : base(conn, true)
         {
 
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            base.OnModelCreating(modelBuilder);
+            //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            //base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<SenderAddressInfo> SenderAddressInfo { set; get; }
