@@ -8,7 +8,7 @@ namespace AddressSplitForExcel.Entity
 {
     public partial class SenderInfo
     {
-        //public long ID { get; set; }
+        public string ID { get; set; }
         public string Sender { get; set; }
         public string Mobile { get; set; }
         public string Provience { get; set; }

@@ -33,7 +33,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnQuit = new System.Windows.Forms.Button();
-            this.btnDel = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,7 +47,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtSender = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.删除 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Provience = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,9 +64,11 @@
             // dgSenders
             // 
             this.dgSenders.AllowUserToAddRows = false;
+            this.dgSenders.AllowUserToDeleteRows = false;
             this.dgSenders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgSenders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
+            this.删除,
+            this.ID,
             this.Sender,
             this.Mobile,
             this.Provience,
@@ -77,6 +81,7 @@
             this.dgSenders.ReadOnly = true;
             this.dgSenders.Size = new System.Drawing.Size(653, 230);
             this.dgSenders.TabIndex = 0;
+            this.dgSenders.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSenders_CellClick);
             this.dgSenders.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSenders_CellDoubleClick);
             // 
             // groupBox1
@@ -91,8 +96,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtID);
             this.groupBox2.Controls.Add(this.btnQuit);
-            this.groupBox2.Controls.Add(this.btnDel);
+            this.groupBox2.Controls.Add(this.btnUpdate);
             this.groupBox2.Controls.Add(this.btnSave);
             this.groupBox2.Controls.Add(this.txtAddress);
             this.groupBox2.Controls.Add(this.label5);
@@ -123,14 +129,16 @@
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
-            // btnDel
+            // btnUpdate
             // 
-            this.btnDel.Location = new System.Drawing.Point(179, 103);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(75, 23);
-            this.btnDel.TabIndex = 3;
-            this.btnDel.Text = "删除";
-            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnUpdate.Enabled = false;
+            this.btnUpdate.Location = new System.Drawing.Point(179, 103);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 3;
+            this.btnUpdate.Text = "更新";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnSave
             // 
@@ -138,7 +146,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "保存";
+            this.btnSave.Text = "添加";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -238,11 +246,32 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "发件人：";
             // 
-            // Column1
+            // txtID
             // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.txtID.Location = new System.Drawing.Point(407, 103);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(216, 21);
+            this.txtID.TabIndex = 5;
+            this.txtID.Visible = false;
+            // 
+            // 删除
+            // 
+            this.删除.HeaderText = "操作";
+            this.删除.LinkColor = System.Drawing.Color.Blue;
+            this.删除.Name = "删除";
+            this.删除.ReadOnly = true;
+            this.删除.Text = "删除";
+            this.删除.UseColumnTextForLinkValue = true;
+            this.删除.VisitedLinkColor = System.Drawing.Color.RoyalBlue;
+            this.删除.Width = 60;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
             // 
             // Sender
             // 
@@ -323,10 +352,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtRegion;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnDel;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnQuit;
-        private System.Windows.Forms.DataGridViewLinkColumn Column1;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.DataGridViewLinkColumn 删除;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sender;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mobile;
         private System.Windows.Forms.DataGridViewTextBoxColumn Provience;

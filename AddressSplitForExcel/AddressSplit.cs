@@ -13,6 +13,7 @@ using NPOI.SS.UserModel;
 using System.Reflection;
 using System.IO;
 using Newtonsoft.Json;
+using AddressSplitForExcel.Entity;
 
 namespace AddressSplitForExcel
 {
@@ -25,6 +26,8 @@ namespace AddressSplitForExcel
         private List<AreaInfo> CityList = new List<AreaInfo>();
         private List<AreaInfo> RegionList = new List<AreaInfo>();
         private List<AddressInfo> AddrList = new List<AddressInfo>();
+        private List<SenderInfo> Senders = new List<SenderInfo>();
+        public SenderInfo currentSender = new SenderInfo();
 
         /// <summary>
         /// 文件列与模板列对应列表
@@ -41,9 +44,24 @@ namespace AddressSplitForExcel
             InitializeComponent();
             InitConfig();
             GenerateAreainfoList();
+
+            BindComBoxData();
+            if (Senders.Count > 0)
+            {
+                currentSender = Senders.FirstOrDefault();
+            }
+
             //richTextBox1.Text = ConfigHelper.GetLocalConfigJson();
         }
-
+        public void BindComBoxData()
+        {
+            DataManager dm = new DataManager();
+            Senders = dm.GetSenders();
+            var list = Senders.Select(s => new { ID = s.ID, Text = s.Sender });
+            comSender.DataSource = list.ToArray();
+            comSender.DisplayMember = "Text";
+            comSender.ValueMember = "ID";
+        }
         public AppConfig AppConfigInfo { set; get; }
         /// <summary>
         /// 初始化配置信息
@@ -307,6 +325,18 @@ namespace AddressSplitForExcel
                 {
                     if (resultdt.Columns.Contains(fieldbind.FileField))
                         dr[fieldbind.TempField] = resultdt.Rows[i][fieldbind.FileField];
+                }
+                //发件人
+                //"发件人（必填）", "发件人电话（选填）", "发件人省（必填）", "发件人市（必填）",
+                //"发件人区（必填）", "发件地址（必填）", "发件人邮编（选填）", "代收货款（选填）", "备注（选填）", "买家邮编（选填）", "买家电话（选填）"
+                if (currentSender != null)
+                {
+                    dr["发件人（必填）"] = currentSender.Sender;
+                    dr["发件人电话（选填）"] = currentSender.Mobile;
+                    dr["发件人省（必填）"] = currentSender.Provience;
+                    dr["发件人区（必填）"] = currentSender.Region;
+                    dr["发件人市（必填）"] = currentSender.City;
+                    dr["发件地址（必填）"] = currentSender.Address;
                 }
                 tempdt.Rows.Add(dr);
             }
@@ -719,7 +749,23 @@ namespace AddressSplitForExcel
         private void tsmSender_Click(object sender, EventArgs e)
         {
             SenderManagement sm = new SenderManagement();
+            sm.FormClosed += Sm_FormClosed;
             sm.ShowDialog();
+        }
+
+        private void Sm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            BindComBoxData();
+        }
+
+        private void comSender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string id = comSender.SelectedValue.ToString();
+            if (!string.IsNullOrEmpty(id))
+            {
+                currentSender = Senders.Where(s => s.ID == id).FirstOrDefault();
+            }
+            //MessageBox.Show(currentSender.Sender);
         }
     }
 }

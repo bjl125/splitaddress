@@ -37,6 +37,7 @@
             this.btnSplit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbFields = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnOpenPath = new System.Windows.Forms.Button();
@@ -50,6 +51,12 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.btnTempUp = new System.Windows.Forms.Button();
+            this.btnTempDown = new System.Windows.Forms.Button();
+            this.btnSourceRemoveAll = new System.Windows.Forms.Button();
+            this.btnSourceAddAll = new System.Windows.Forms.Button();
+            this.btnTempRemoveAll = new System.Windows.Forms.Button();
+            this.btnTempAddAll = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -73,13 +80,8 @@
             this.tsmSender = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbFields = new System.Windows.Forms.ListBox();
-            this.btnTempUp = new System.Windows.Forms.Button();
-            this.btnTempDown = new System.Windows.Forms.Button();
-            this.btnSourceRemoveAll = new System.Windows.Forms.Button();
-            this.btnSourceAddAll = new System.Windows.Forms.Button();
-            this.btnTempRemoveAll = new System.Windows.Forms.Button();
-            this.btnTempAddAll = new System.Windows.Forms.Button();
+            this.gpinfo = new System.Windows.Forms.GroupBox();
+            this.comSender = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -87,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgTempView)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.gpinfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFDialog
@@ -156,12 +159,21 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lbFields);
-            this.groupBox1.Location = new System.Drawing.Point(16, 125);
+            this.groupBox1.Location = new System.Drawing.Point(16, 195);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(186, 645);
+            this.groupBox1.Size = new System.Drawing.Size(186, 575);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "选择拆分列";
+            // 
+            // lbFields
+            // 
+            this.lbFields.FormattingEnabled = true;
+            this.lbFields.ItemHeight = 12;
+            this.lbFields.Location = new System.Drawing.Point(6, 20);
+            this.lbFields.Name = "lbFields";
+            this.lbFields.Size = new System.Drawing.Size(173, 544);
+            this.lbFields.TabIndex = 3;
             // 
             // label2
             // 
@@ -317,6 +329,66 @@
             this.label12.Size = new System.Drawing.Size(87, 15);
             this.label12.TabIndex = 7;
             this.label12.Text = "文件列选择";
+            // 
+            // btnTempUp
+            // 
+            this.btnTempUp.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Sort_Up_20;
+            this.btnTempUp.Location = new System.Drawing.Point(357, 36);
+            this.btnTempUp.Name = "btnTempUp";
+            this.btnTempUp.Size = new System.Drawing.Size(28, 28);
+            this.btnTempUp.TabIndex = 6;
+            this.btnTempUp.UseVisualStyleBackColor = true;
+            this.btnTempUp.Click += new System.EventHandler(this.btnTempUp_Click);
+            // 
+            // btnTempDown
+            // 
+            this.btnTempDown.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Sort_Down_20;
+            this.btnTempDown.Location = new System.Drawing.Point(357, 70);
+            this.btnTempDown.Name = "btnTempDown";
+            this.btnTempDown.Size = new System.Drawing.Size(28, 28);
+            this.btnTempDown.TabIndex = 6;
+            this.btnTempDown.UseVisualStyleBackColor = true;
+            this.btnTempDown.Click += new System.EventHandler(this.btnTempDown_Click);
+            // 
+            // btnSourceRemoveAll
+            // 
+            this.btnSourceRemoveAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Down_20;
+            this.btnSourceRemoveAll.Location = new System.Drawing.Point(29, 325);
+            this.btnSourceRemoveAll.Name = "btnSourceRemoveAll";
+            this.btnSourceRemoveAll.Size = new System.Drawing.Size(39, 35);
+            this.btnSourceRemoveAll.TabIndex = 5;
+            this.btnSourceRemoveAll.UseVisualStyleBackColor = true;
+            this.btnSourceRemoveAll.Click += new System.EventHandler(this.btnSourceRemoveAll_Click);
+            // 
+            // btnSourceAddAll
+            // 
+            this.btnSourceAddAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Up_20;
+            this.btnSourceAddAll.Location = new System.Drawing.Point(74, 325);
+            this.btnSourceAddAll.Name = "btnSourceAddAll";
+            this.btnSourceAddAll.Size = new System.Drawing.Size(39, 35);
+            this.btnSourceAddAll.TabIndex = 5;
+            this.btnSourceAddAll.UseVisualStyleBackColor = true;
+            this.btnSourceAddAll.Click += new System.EventHandler(this.btnSourceAddAll_Click);
+            // 
+            // btnTempRemoveAll
+            // 
+            this.btnTempRemoveAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Down_20;
+            this.btnTempRemoveAll.Location = new System.Drawing.Point(233, 325);
+            this.btnTempRemoveAll.Name = "btnTempRemoveAll";
+            this.btnTempRemoveAll.Size = new System.Drawing.Size(39, 35);
+            this.btnTempRemoveAll.TabIndex = 5;
+            this.btnTempRemoveAll.UseVisualStyleBackColor = true;
+            this.btnTempRemoveAll.Click += new System.EventHandler(this.btnTempRemoveAll_Click);
+            // 
+            // btnTempAddAll
+            // 
+            this.btnTempAddAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Up_20;
+            this.btnTempAddAll.Location = new System.Drawing.Point(278, 325);
+            this.btnTempAddAll.Name = "btnTempAddAll";
+            this.btnTempAddAll.Size = new System.Drawing.Size(39, 35);
+            this.btnTempAddAll.TabIndex = 5;
+            this.btnTempAddAll.UseVisualStyleBackColor = true;
+            this.btnTempAddAll.Click += new System.EventHandler(this.btnTempAddAll_Click);
             // 
             // label20
             // 
@@ -535,80 +607,31 @@
             this.关于AToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
             this.关于AToolStripMenuItem.Text = "关于(&A)";
             // 
-            // lbFields
+            // gpinfo
             // 
-            this.lbFields.FormattingEnabled = true;
-            this.lbFields.ItemHeight = 12;
-            this.lbFields.Location = new System.Drawing.Point(7, 23);
-            this.lbFields.Name = "lbFields";
-            this.lbFields.Size = new System.Drawing.Size(173, 292);
-            this.lbFields.TabIndex = 3;
+            this.gpinfo.Controls.Add(this.comSender);
+            this.gpinfo.Location = new System.Drawing.Point(16, 126);
+            this.gpinfo.Name = "gpinfo";
+            this.gpinfo.Size = new System.Drawing.Size(186, 63);
+            this.gpinfo.TabIndex = 23;
+            this.gpinfo.TabStop = false;
+            this.gpinfo.Text = "发件人选择";
             // 
-            // btnTempUp
+            // comSender
             // 
-            this.btnTempUp.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Sort_Up_20;
-            this.btnTempUp.Location = new System.Drawing.Point(357, 36);
-            this.btnTempUp.Name = "btnTempUp";
-            this.btnTempUp.Size = new System.Drawing.Size(28, 28);
-            this.btnTempUp.TabIndex = 6;
-            this.btnTempUp.UseVisualStyleBackColor = true;
-            this.btnTempUp.Click += new System.EventHandler(this.btnTempUp_Click);
-            // 
-            // btnTempDown
-            // 
-            this.btnTempDown.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Sort_Down_20;
-            this.btnTempDown.Location = new System.Drawing.Point(357, 70);
-            this.btnTempDown.Name = "btnTempDown";
-            this.btnTempDown.Size = new System.Drawing.Size(28, 28);
-            this.btnTempDown.TabIndex = 6;
-            this.btnTempDown.UseVisualStyleBackColor = true;
-            this.btnTempDown.Click += new System.EventHandler(this.btnTempDown_Click);
-            // 
-            // btnSourceRemoveAll
-            // 
-            this.btnSourceRemoveAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Down_20;
-            this.btnSourceRemoveAll.Location = new System.Drawing.Point(29, 325);
-            this.btnSourceRemoveAll.Name = "btnSourceRemoveAll";
-            this.btnSourceRemoveAll.Size = new System.Drawing.Size(39, 35);
-            this.btnSourceRemoveAll.TabIndex = 5;
-            this.btnSourceRemoveAll.UseVisualStyleBackColor = true;
-            this.btnSourceRemoveAll.Click += new System.EventHandler(this.btnSourceRemoveAll_Click);
-            // 
-            // btnSourceAddAll
-            // 
-            this.btnSourceAddAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Up_20;
-            this.btnSourceAddAll.Location = new System.Drawing.Point(74, 325);
-            this.btnSourceAddAll.Name = "btnSourceAddAll";
-            this.btnSourceAddAll.Size = new System.Drawing.Size(39, 35);
-            this.btnSourceAddAll.TabIndex = 5;
-            this.btnSourceAddAll.UseVisualStyleBackColor = true;
-            this.btnSourceAddAll.Click += new System.EventHandler(this.btnSourceAddAll_Click);
-            // 
-            // btnTempRemoveAll
-            // 
-            this.btnTempRemoveAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Down_20;
-            this.btnTempRemoveAll.Location = new System.Drawing.Point(233, 325);
-            this.btnTempRemoveAll.Name = "btnTempRemoveAll";
-            this.btnTempRemoveAll.Size = new System.Drawing.Size(39, 35);
-            this.btnTempRemoveAll.TabIndex = 5;
-            this.btnTempRemoveAll.UseVisualStyleBackColor = true;
-            this.btnTempRemoveAll.Click += new System.EventHandler(this.btnTempRemoveAll_Click);
-            // 
-            // btnTempAddAll
-            // 
-            this.btnTempAddAll.Image = global::AddressSplitForExcel.Properties.Resources.icons8_Double_Up_20;
-            this.btnTempAddAll.Location = new System.Drawing.Point(278, 325);
-            this.btnTempAddAll.Name = "btnTempAddAll";
-            this.btnTempAddAll.Size = new System.Drawing.Size(39, 35);
-            this.btnTempAddAll.TabIndex = 5;
-            this.btnTempAddAll.UseVisualStyleBackColor = true;
-            this.btnTempAddAll.Click += new System.EventHandler(this.btnTempAddAll_Click);
+            this.comSender.FormattingEnabled = true;
+            this.comSender.Location = new System.Drawing.Point(7, 22);
+            this.comSender.Name = "comSender";
+            this.comSender.Size = new System.Drawing.Size(173, 20);
+            this.comSender.TabIndex = 0;
+            this.comSender.SelectedIndexChanged += new System.EventHandler(this.comSender_SelectedIndexChanged);
             // 
             // AddressSplit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1533, 776);
+            this.Controls.Add(this.gpinfo);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -644,6 +667,7 @@
             this.groupBox4.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.gpinfo.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -702,6 +726,8 @@
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于AToolStripMenuItem;
         private System.Windows.Forms.ListBox lbFields;
+        private System.Windows.Forms.GroupBox gpinfo;
+        private System.Windows.Forms.ComboBox comSender;
     }
 }
 
