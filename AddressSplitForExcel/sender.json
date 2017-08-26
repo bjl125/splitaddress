@@ -1,65 +1,11 @@
 [
   {
     "ID": "33228a91-d668-4af9-91c7-46537cc68375",
-    "Sender": "客户名称",
+    "Sender": "发件人",
     "Mobile": "123212313",
     "Provience": "北京市",
     "City": "北京市",
-    "Region": "朝阳区",
-    "Address": "望京东东大街"
-  },
-  {
-    "ID": "5ace32ef-86bf-4b85-aa4b-b0b2939a7112",
-    "Sender": "客户名称",
-    "Mobile": "123212313",
-    "Provience": "北京市",
-    "City": "北京市",
-    "Region": "朝阳区",
-    "Address": "望京东东大街"
-  },
-  {
-    "ID": "f1b969dd-a30c-4874-9d50-a2841c82bea3",
-    "Sender": "客户名称",
-    "Mobile": "123212313",
-    "Provience": "北京市",
-    "City": "北京市",
-    "Region": "朝阳区",
-    "Address": "望京东东大街"
-  },
-  {
-    "ID": "30890d23-31b3-48b0-a932-02511ab474b7",
-    "Sender": "客户名称",
-    "Mobile": "123212313",
-    "Provience": "北京市",
-    "City": "北京市",
-    "Region": "朝阳区",
-    "Address": "望京东东大街"
-  },
-  {
-    "ID": "006a7da6-4d81-44e9-81f7-527da82fea15",
-    "Sender": "客户名称",
-    "Mobile": "123212313",
-    "Provience": "北京市",
-    "City": "北京市",
-    "Region": "朝阳区",
-    "Address": "望京东东大街"
-  },
-  {
-    "ID": "11743c10-61f4-4c13-bf5b-f8ec2b1d6ac7",
-    "Sender": "客户名称",
-    "Mobile": "123212313",
-    "Provience": "北京市",
-    "City": "北京市",
-    "Region": "朝阳区",
-    "Address": "望京东东大街"
-  },
-  {
-    "ID": "79ce8c31-9c43-4b6a-a2f0-29846428b4ee",
-    "Sender": "客户名称",
-    "Mobile": "123212313",
-    "Provience": "北京市",
-    "City": "北京市",
-    "Region": "朝阳区",
-    "Address": "望京东东大街"
+    "Region": "顺义区",
+    "Address": "牛栏山"
   }
 ]
