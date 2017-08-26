@@ -192,8 +192,8 @@ namespace AddressSplitForExcel
             //        //MessageBox.Show(ckFields.Items[i].ToString());
             //    }
             //}
-
-            fields.Add(lbFields.SelectedItem.ToString());
+            if (lbFields.SelectedIndex >= 0)
+                fields.Add(lbFields.SelectedItem.ToString());
             return fields;
         }
         private void btnSplit_Click(object sender, EventArgs e)

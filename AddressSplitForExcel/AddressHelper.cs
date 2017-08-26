@@ -26,7 +26,7 @@ namespace AddressSplitForExcel
                 city = prov.IndexOf("市", 0) > 0 ? prov : prov + "市";
 
                 //区拆分
-                region = GetRegion(otherAddr, out otherAddr, provs, citys, regions).AddrArea;
+                region = GetRegion(otherAddr, out otherAddr, city, provs, citys, regions).AddrArea;
             }
             else
             {
@@ -47,7 +47,7 @@ namespace AddressSplitForExcel
             return adinfo;
         }
 
-        public static AddressInfo GetRegion(string add, out string otheradd, List<AreaInfo> proviences, List<AreaInfo> citys, List<AreaInfo> regions)
+        public static AddressInfo GetRegion(string add, out string otheradd, string currentCity, List<AreaInfo> proviences, List<AreaInfo> citys, List<AreaInfo> regions)
         {
             string region = string.Empty;
             string parentcode = string.Empty;
@@ -105,42 +105,47 @@ namespace AddressSplitForExcel
                     //    }
                     //}
                 }
+                //通过区查找市
                 if (!String.IsNullOrWhiteSpace(region))
                 {
-                    //查找省市
-                    if (!String.IsNullOrEmpty(parentcode))
+                    //只有在市为空的时候查找
+                    if (String.IsNullOrWhiteSpace(currentCity))
                     {
-                        var ad = (from c in citys
-                                  from p in proviences
-                                  where c.ParentCode == p.Code && c.Code == parentcode
-                                  select new
-                                  {
-                                      provname = p.AreaFirstName + p.AreaLastName,
-                                      cityname = c.AreaFirstName + c.AreaLastName
-                                  }).FirstOrDefault();
-                        if (ad != null)
+                        //查找省市
+                        if (!String.IsNullOrEmpty(parentcode))
                         {
-                            addrinfo.AddrPro = ad.provname;
-                            addrinfo.AddrCity = ad.cityname;
+                            var ad = (from c in citys
+                                      from p in proviences
+                                      where c.ParentCode == p.Code && c.Code == parentcode
+                                      select new
+                                      {
+                                          provname = p.AreaFirstName + p.AreaLastName,
+                                          cityname = c.AreaFirstName + c.AreaLastName
+                                      }).FirstOrDefault();
+                            if (ad != null)
+                            {
+                                addrinfo.AddrPro = ad.provname;
+                                addrinfo.AddrCity = ad.cityname;
+                            }
                         }
-                    }
-                    else
-                    {
-                        var ad = (from r in regions
-                                  from c in citys
-                                  from p in proviences
-                                  where r.ParentCode == c.Code && c.ParentCode == p.Code && region.StartsWith(r.AreaFirstName)
-                                  select new
-                                  {
-                                      provname = p.AreaFirstName + p.AreaLastName,
-                                      cityname = c.AreaFirstName + c.AreaLastName
-                                  }).FirstOrDefault();
-                        if (ad != null)
+                        else
                         {
-                            addrinfo.AddrPro = ad.provname;
-                            addrinfo.AddrCity = ad.cityname;
-                        }
+                            var ad = (from r in regions
+                                      from c in citys
+                                      from p in proviences
+                                      where r.ParentCode == c.Code && c.ParentCode == p.Code && region.StartsWith(r.AreaFirstName)
+                                      select new
+                                      {
+                                          provname = p.AreaFirstName + p.AreaLastName,
+                                          cityname = c.AreaFirstName + c.AreaLastName
+                                      }).FirstOrDefault();
+                            if (ad != null)
+                            {
+                                addrinfo.AddrPro = ad.provname;
+                                addrinfo.AddrCity = ad.cityname;
+                            }
 
+                        }
                     }
                     otheradd = add.Substring(region.Length, add.Length - region.Length);
                     addrinfo.AddrArea = region;
