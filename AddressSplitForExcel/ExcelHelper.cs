@@ -194,7 +194,8 @@ namespace AddressSplitForExcel
                         startrow = sheet.FirstRowNum;
 
                     }
-                    int rowCount = sheet.LastRowNum;
+                    //数据行数
+                    int rowCount = sheet.LastRowNum + 1;
 
                     for (int i = startrow; i < rowCount; ++i)
                     {

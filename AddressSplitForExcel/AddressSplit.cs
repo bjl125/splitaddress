@@ -201,6 +201,9 @@ namespace AddressSplitForExcel
             var fields = GetCheckedColumns();
             if (fields.Count > 0)
             {
+                //清空拆分
+                AddrList.Clear();
+
                 //设置已选择的文件列配置
                 UpdateConfigInfo();
                 //设置列对应关系
